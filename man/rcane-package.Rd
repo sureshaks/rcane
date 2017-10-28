@@ -1,0 +1,34 @@
+\name{rcane-package}
+\alias{rcane-package}
+\alias{rcane}
+\docType{package}
+\title{
+\packageTitle{rcane}
+}
+\description{
+\packageDescription{rcane}
+}
+\details{
+
+The DESCRIPTION file:
+\packageDESCRIPTION{rcane}
+\packageIndices{rcane}
+~~ An overview of how to use the package, including the most important functions ~~
+}
+\author{
+\packageAuthor{rcane}
+
+Maintainer: \packageMaintainer{rcane}
+}
+\references{
+~~ Literature or other references for background information ~~
+}
+~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R documentation directory ~~
+\keyword{ package }
+\seealso{
+~~ Optional links to other man pages, e.g. ~~
+~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
+}
+\examples{
+~~ simple examples of the most important functions ~~
+}
