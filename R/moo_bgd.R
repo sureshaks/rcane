@@ -5,7 +5,7 @@
 #' @param Y the response vector.
 #' @param alpha the learning rate - typically this would be set to the optimum value
 #' @param lambda the regularization parameter - if you want to constrain your parameter estimation to avoid overfitting
-#' @param max.iter the maximum number of iterations - in case of delayed convergence, the function would terminate after iters iterations
+#' @param max.iter the maximum number of iterations - in case of delayed convergence, the function would terminate after max.iter iterations
 #' @param precision the minimum difference of Betas between each iterations. If no difference is more than precision, stop the iteration.
 #' @export
 #' @examples
