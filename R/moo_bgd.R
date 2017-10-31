@@ -11,7 +11,7 @@
 #' StochasticGradientDescent(as.matrix(c(1,2,3,4,5), as.matrix(c(1,2,3,4,5), alpha=0.01)
 
 StochasticGradientDescent <- function(X, Y, alpha = 1, lambda = 0, max.round = 1000, precision = 0.0001){
-  alpha <- alpha/length(Y)
+  alpha <- alpha / length(Y)
   X     <- cbind(1, X)
   B     <- rep(0, ncol(X))
   
