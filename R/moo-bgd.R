@@ -12,8 +12,6 @@
 #' StochasticGradientDescent(as.matrix(c(1,2,3,4,5), as.matrix(c(1,2,3,4,5), alpha=0.01)
 
 StochasticGradientDescent <- function(X, Y, alpha = 1, lambda = 0, max.iter = 1000, precision = 0.0001){
-  # Adding intercept as 1
-  X     <- cbind(1, X)
   # Initial value of coefficients
   B     <- rep(0, ncol(X))
   
