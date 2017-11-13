@@ -7,13 +7,16 @@
 #' @param lambda the regularization parameter - if you want to constrain your parameter estimation to avoid overfitting
 #' @param max.iter the maximum number of iterations - in case of delayed convergence, the function would terminate after max.iter iterations
 #' @param precision the minimum difference of Betas between each iterations. If no difference is more than precision, stop the iteration.
-#' @export
+#' 
 #' @examples
 #' StochasticGradientDescent(as.matrix(c(1,2,3,4,5), as.matrix(c(1,2,3,4,5), alpha=0.01)
+#' 
+#' @export
 
 StochasticGradientDescent <- function(X, Y, alpha = 1, lambda = 0, max.iter = 1000, precision = 0.0001){
   # Initial value of coefficients
-  B     <- rep(0, ncol(X))
+  B     <- as.matrix(rep(0, ncol(X)))
+  rownames(B) <- colnames(X)
   
   # For each iteration
   for(iter in 1:max.iter){
@@ -36,5 +39,13 @@ StochasticGradientDescent <- function(X, Y, alpha = 1, lambda = 0, max.iter = 10
     }
   }
   
-  return(B)
+  coef <- as.vector(B)
+  names(coef) <- rownames(B)
+  
+  structure(list(
+    x=X,
+    y=Y,
+    coefficients = coef
+  ),
+  class = "rgasm")
 }

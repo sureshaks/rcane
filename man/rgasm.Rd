@@ -2,9 +2,12 @@
 % Please edit documentation in R/rgasm.R
 \name{rgasm}
 \alias{rgasm}
+\alias{print.rgasm}
 \title{rgasm}
 \usage{
 rgasm(formula, data, method = "sgd", ...)
+
+\method{print}{rgasm}(object, ...)
 }
 \arguments{
 \item{formula}{an object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.}
@@ -14,12 +17,19 @@ rgasm(formula, data, method = "sgd", ...)
 \item{method}{the method to be used. Possible values include "bgd", "sgd", "cgd" and "mini-bgd".}
 
 \item{...}{additional arguments to be passed to the low level regression fitting functions.}
+
+\item{object}{The object to be printed.}
 }
 \description{
-This function is a wrapper for the optimization functions written in the rcane project.
+\code{rgasm} is an interface for the optimization functions written in the rcane project.
 }
+\section{Methods (by generic)}{
+\itemize{
+\item \code{print}: Print method for rgasm
+}}
+
 \examples{
-data <- data.frame(matrix(10:18, 3))
-formula = X1~X2+X3
-rgasm(formula, data, alpha=0.001)
+library(datasets)
+rgasm(mpg ~ disp, data = mtcars, alpha = 0.00001)
+
 }
