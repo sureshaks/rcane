@@ -15,6 +15,8 @@
 
 rgasm <- function (formula, data, method = "sgd", ...){
   cl <- match.call()
+  if ( as.character(formula[[1]]) != "~" )
+    stop("invalid formula")
   mf <- match.call(expand.dots = FALSE)
   m <- match(c("formula", "data"), names(mf), 0L)
   mf <- mf[c(1L, m)]
@@ -31,7 +33,9 @@ rgasm <- function (formula, data, method = "sgd", ...){
     z <- (StochasticGradientDescent(x, y, ...))
   }
   
+  class(z) <- "rgasm"
   z$call <- cl
+  z$method <- method
   z
 }
 
@@ -44,8 +48,12 @@ rgasm <- function (formula, data, method = "sgd", ...){
 #' @export
 
 print.rgasm <- function(object, ...){
-  cat("Call:\n")
+  cat("\nCall:\n")
   print(object$call)
   cat("\nCoefficients\n")
-  print(object$coefficients)
+  if(length(object$coefficients)){
+    print(object$coefficients)
+  } else{
+    print("No coefficients\n")
+  }
 }
