@@ -1,31 +1,53 @@
 #' Batch Gradient Descent
 #'
 #' This function performs parameter estimation for Linear Regression using Batch Gradient Descent
-#' @param x the input matrix of predictors. Each column represents a predictor
-#' @param y the response vector.
+#' @param X the input matrix of predictors. Each column represents a predictor
+#' @param Y the response vector.
 #' @param alpha the learning rate - typically this would be set to the optimum value
-#' @param lambda the regularization parameter - if you want to constrain your parameter estimation to avoid overfitting
-#' @param max.round the maximum number of iterations - in case of delayed convergence, the function would terminate after max.round iterations
+#' @param max.iter the maximum number of iterations - in case of delayed convergence, the function would terminate after max.iter iterations
+#' @param precision the precision of the result
 #' @export
 #' @examples
-#' batch(as.matrix(c(1,2,3,4,5),as.matrix(c(1,2,3,4,5),alpha=0.01)
-batch <- function(x, y, alpha=0.004, lambda=0, max.round=1000, precision=0.0001) {
-  x <- cbind(1, x)
-  b <- rep(0, ncol(x))
+#' BatchGradientDescent(as.matrix(c(1,2,3,4,5),as.matrix(c(1,2,3,4,5),alpha=0.01)
+BatchGradientDescent <- function(X, Y, alpha=0.0004, max.iter=1000, precision=0.0001) {
+  if (is.null(n <- nrow(X))) stop("'X' must be a matrix")
+  
+  if(n == 0L) stop("0 (non-NA) cases")
+  
+  p <- ncol(X)
+  
+  if(p == 0L) {
+    return(list(
+      x = X,
+      y = Y,
+      coefficients = numeric(),
+      residuals = Y,
+      fitted.values = 0 * Y
+    ))
+  }
+  
+  if(NROW(Y) != n) {
+    stop("incompatible dimensions")
+  }
+  
+  # Initial value of coefficients
+  B <- rep(0, ncol(X))
+  names(B) <- colnames(X)
   round <- 1
   first.round = TRUE
-  b.prev <- rep(NA,length(b))
+  B.prev <- rep(0,length(B))
   
-  while(round <= max.round &&
-        !any(is.na(b)) &&
+  while(round <= max.iter &&
+        !any(is.na(B)) &&
         (first.round || 
-         any(abs(b.prev - b) > precision*b)
+         any(abs(B.prev - B) > precision*B)
         )) {
-    b.prev <- b
+    B.prev <- B
     first.round <- FALSE
-    yhat <- x %*% b
-    b <- b + 2 * alpha * t(x) %*% (y - yhat)
+    yhat <- X %*% B
+    B <- B + 2 * alpha * t(X) %*% (Y - yhat)
     round <- round + 1
+    B <- round(B, digits=5)
   }
-  b
+  B
 }
