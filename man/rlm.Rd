@@ -14,10 +14,7 @@ a symbolic description of the model to be fitted.}
 
 \item{method}{the type of gradient descent algorithm to be used}
 
-\item{alpha}{the learning rate at which the parameters converge to optimal values.}
-
-\item{max.round}{the maximum number of iterations - in case of delayed convergence,
-the function would terminate after max.iter iterations}
+\item{...}{additional parameters such as learning rate, precision and maximum iterations to be passed to the functin}
 }
 \description{
 This function performs heuristic parameter estimation for Linear Regression using different

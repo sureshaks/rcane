@@ -6,9 +6,7 @@
 #'  a symbolic description of the model to be fitted.
 #' @param data the data frame containing variables in the model
 #' @param method the type of gradient descent algorithm to be used
-#' @param alpha the learning rate at which the parameters converge to optimal values.
-#' @param max.round the maximum number of iterations - in case of delayed convergence,
-#'  the function would terminate after max.iter iterations
+#' @param ... additional parameters such as learning rate, precision and maximum iterations to be passed to the functin
 #' @export
 rlm <- function (formula, data, method = "batch", ...) {
   if ( as.character(formula[[1]]) != "~" )
