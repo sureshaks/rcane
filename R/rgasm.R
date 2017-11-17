@@ -53,7 +53,7 @@ print.rgasm <- function(object, ...){
   cat("\nCoefficients\n")
   if(length(object$coefficients)){
     print(object$coefficients)
-  } else{
+  } else {
     print("No coefficients\n")
   }
 }
