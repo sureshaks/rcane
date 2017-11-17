@@ -30,5 +30,6 @@ Maintainer: \packageMaintainer{rcane}
 ~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
 }
 \examples{
-~~ simple examples of the most important functions ~~
+rlm(y ~ x, data=data.frame(x=c(1,2,3), y=c(1,2,3)))
 }
+

@@ -7,8 +7,6 @@
 #' @param max.iter the maximum number of iterations - in case of delayed convergence, the function would terminate after max.iter iterations
 #' @param precision the precision of the result
 #' @export
-#' @examples
-#' BatchGradientDescent(as.matrix(c(1,2,3,4,5),as.matrix(c(1,2,3,4,5),alpha=0.01)
 BatchGradientDescent <- function(X, Y, alpha=0.0004, max.iter=1000, precision=0.0001) {
   if (is.null(n <- nrow(X))) stop("'X' must be a matrix")
   

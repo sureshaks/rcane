@@ -17,12 +17,9 @@ a symbolic description of the model to be fitted.}
 \item{alpha}{the learning rate at which the parameters converge to optimal values.}
 
 \item{max.round}{the maximum number of iterations - in case of delayed convergence,
-the function would terminate after max.round iterations}
+the function would terminate after max.iter iterations}
 }
 \description{
 This function performs heuristic parameter estimation for Linear Regression using different
 gradient descent algorithms
-}
-\examples{
-rlm(y ~ x, data=something, method="batch")
 }

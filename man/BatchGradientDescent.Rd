@@ -21,6 +21,3 @@ BatchGradientDescent(X, Y, alpha = 4e-04, max.iter = 1000,
 \description{
 This function performs parameter estimation for Linear Regression using Batch Gradient Descent
 }
-\examples{
-BatchGradientDescent(as.matrix(c(1,2,3,4,5),as.matrix(c(1,2,3,4,5),alpha=0.01)
-}
