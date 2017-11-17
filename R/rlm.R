@@ -23,3 +23,7 @@ rlm <- function (formula, data, method = "batch", ...) {
     BatchGradientDescent(x, y, ...)
   }
 }
+
+print.rlm <- function(object, ...) {
+	print("Coefficients: ")
+}
