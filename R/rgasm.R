@@ -2,7 +2,7 @@
 #'
 #' \code{rgasm} is an interface for the optimization functions written in the rcane project.
 #' 
-#' @param formula an object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted. The details of model specification are given under ‘Details’.
+#' @param formula an object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted.
 #' @param data an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which lm is called.
 #' @param method the method to be used. Possible values include "bgd", "sgd", "cgd" and "mini-bgd".
 #' @param ... additional arguments to be passed to the low level regression fitting functions.
@@ -45,7 +45,6 @@ rgasm <- function (formula, data, method = "sgd", ...){
 #' @param object The object to be printed.
 #'  
 #' @method print rgasm
-#' @export
 
 print.rgasm <- function(object, ...){
   cat("\nCall:\n")

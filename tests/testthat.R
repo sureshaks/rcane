@@ -1,4 +1,4 @@
 library(testthat)
 library(rcane)
 
-test_check("rcane")
+#test_check("rcane")
