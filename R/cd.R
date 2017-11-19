@@ -29,8 +29,8 @@ CoordinateDescent <- function(X, Y, max.iter = 1000) {
  
   for(i in 1:max.iter) {
     for(j in (1:length(B))) {
-      hx <- (X[,-j]%*%as.matrix(B[-j]))
-      derrivative <- (Y-hx)*ifelse(j == 1,(1/length(Y)),1)
+      hx <- (X[,-j,drop=FALSE] %*% as.matrix(B[-j]))
+      derrivative <- (Y-hx)
       derrivative <- ifelse(derrivative<0.001,0,derrivative)
     
       B[j] <- (1/norm(as.matrix(X[,j]),"F")^2)*(t(derrivative)%*%X[,j])
