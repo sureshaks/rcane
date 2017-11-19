@@ -2,21 +2,34 @@
 % Please edit documentation in R/rlm.R
 \name{rlm}
 \alias{rlm}
-\title{Batch Gradient Descent}
+\alias{print.rlm}
+\title{rlm}
 \usage{
-rlm(formula, data, method = "batch", ...)
+rlm(formula, data, method = "sgd", ...)
+
+\method{print}{rlm}(x, ...)
 }
 \arguments{
-\item{formula}{an object of class "formula" (or one that can be coerced to that class):
-a symbolic description of the model to be fitted.}
+\item{formula}{an object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted.}
 
-\item{data}{the data frame containing variables in the model}
+\item{data}{an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which lm is called.}
 
-\item{method}{the type of gradient descent algorithm to be used}
+\item{method}{the method to be used. Possible values include "bgd", "sgd", "cgd" and "mini-bgd".}
 
-\item{...}{additional parameters such as learning rate, precision and maximum iterations to be passed to the functin}
+\item{...}{additional arguments to be passed to the low level regression fitting functions.}
+
+\item{object}{The object to be printed.}
 }
 \description{
-This function performs heuristic parameter estimation for Linear Regression using different
-gradient descent algorithms
+\code{rlm} is an interface for the optimization functions written in the rcane project.
+}
+\section{Methods (by generic)}{
+\itemize{
+\item \code{print}: Print method for rlm
+}}
+
+\examples{
+library(datasets)
+rlm(mpg ~ disp, data = mtcars, alpha = 0.00001)
+
 }
