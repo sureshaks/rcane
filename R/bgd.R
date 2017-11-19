@@ -23,7 +23,7 @@ BatchGradientDescent <- function(X, Y, alpha=0.0004, max.iter=1000, precision=0.
   B <- rep(0, ncol(X))
   names(B) <- colnames(X)
   
-  for(i in 1:nrow(X)){
+  for(iter in 1:max.iter){
     B.prev <- B
     
     yhat <- X %*% B
