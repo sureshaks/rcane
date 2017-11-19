@@ -1,13 +1,14 @@
 Package: rcane
 Type: Package
-Title: What the package does (short line)
+Title: The package performs different types of numeric optimizations to estimate parameter coefficients
 Version: 1.0
 Date: 2017-10-28
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
-RoxygenNote: 6.0.1.9000
-Suggests: knitr,
-    rmarkdown
+Author: Akshay Suresh, Siddhesh Acharekar, Hsiangwei Chao, Shiva Yogi Biradar
+Maintainer: Akshay Suresh<suresh.aks@husky.neu.edu>
+Description: There are different numeric optimizations which are used in order to estimate coefficients in models such as Linear Regression and Neural Networks. This package covers parameter estimation in Linear Regression using different methods such as Batch Gradient Descent, Stochastic Gradient Descent, Minibatch Gradient Descent and Coordinate Gradient Descent.
+License: MIT + file LICENSE
+RoxygenNote: 6.0.1
+Suggests: testthat,
+	knitr,
+    	rmarkdown
 VignetteBuilder: knitr

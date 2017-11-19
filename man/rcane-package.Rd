@@ -13,7 +13,7 @@
 The DESCRIPTION file:
 \packageDESCRIPTION{rcane}
 \packageIndices{rcane}
-~~ An overview of how to use the package, including the most important functions ~~
+The package uses 4 different optimization algorithms - batch, stochastic, minibatch and coordinate descent
 }
 \author{
 \packageAuthor{rcane}
@@ -21,14 +21,14 @@ The DESCRIPTION file:
 Maintainer: \packageMaintainer{rcane}
 }
 \references{
-~~ Literature or other references for background information ~~
+References would come here - need to add references
 }
-~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R documentation directory ~~
 \keyword{ package }
+
 \seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
+Need to add see also
 }
 \examples{
-~~ simple examples of the most important functions ~~
+rlm(y ~ x, data=data.frame(x=c(1,2,3), y=c(1,2,3)))
 }
+
