@@ -1,12 +1,3 @@
-#' Batch Gradient Descent
-#'
-#' This function performs parameter estimation for Linear Regression using Batch Gradient Descent
-#' @param X the input matrix of predictors. Each column represents a predictor
-#' @param Y the response vector.
-#' @param alpha the learning rate - typically this would be set to the optimum value
-#' @param max.iter the maximum number of iterations - in case of delayed convergence, the function would terminate after max.iter iterations
-#' @param precision the precision of the result
-#' @export
 BatchGradientDescent <- function(X, Y, alpha=0.0004, max.iter=1000, precision=0.0001) {
   if (is.null(n <- nrow(X))) stop("'X' must be a matrix")
   

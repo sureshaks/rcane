@@ -1,13 +1,3 @@
-#' Stochastic Gradient Descent
-#'
-#' This function performs parameter estimation for Linear Regression using Stochastic Gradient Descent
-#' @param X the input matrix of predictors. Each column represents a predictor
-#' @param Y the response vector.
-#' @param alpha the learning rate - typically this would be set to the optimum value
-#' @param max.iter the maximum number of iterations - in case of delayed convergence, the function would terminate after max.iter iterations
-#' @param precision the minimum difference of Betas between each iterations. If no difference is more than precision, stop the iteration.
-#' @export
-
 StochasticGradientDescent <- function(X, Y, alpha = 1, max.iter = 1000, precision = 0.0001){
   if (is.null(n <- nrow(X))) stop("'X' must be a matrix")
   
