@@ -14,8 +14,13 @@
 #' @export
 
 StochasticGradientDescent <- function(X, Y, alpha = 1, lambda = 0, max.iter = 1000, precision = 0.0001){
-  if (is.null(n <- nrow(X))) stop("'X' must be a matrix")
-  if(n == 0L) stop("0 (non-NA) cases")
+  if (is.null(n <- nrow(X))){
+    stop("'X' must be a matrix")
+  }
+  if(n == 0L){
+    stop("0 (non-NA) cases")
+  }
+  
   p <- ncol(X)
   if(p == 0L){
     return(list(
@@ -26,6 +31,7 @@ StochasticGradientDescent <- function(X, Y, alpha = 1, lambda = 0, max.iter = 10
       fitted.values = 0 * y
     ))
   }
+  
   if(NROW(Y) != n){
     stop("incompatible dimensions")
   }
