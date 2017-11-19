@@ -21,7 +21,3 @@ StochasticGradientDescent(X, Y, alpha = 1, max.iter = 1000,
 \description{
 This function performs parameter estimation for Linear Regression using Stochastic Gradient Descent
 }
-\examples{
-StochasticGradientDescent(as.matrix(c(1,2,3,4,5), as.matrix(c(1,2,3,4,5), alpha=0.01)
-
-}

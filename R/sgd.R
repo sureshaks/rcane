@@ -6,10 +6,6 @@
 #' @param alpha the learning rate - typically this would be set to the optimum value
 #' @param max.iter the maximum number of iterations - in case of delayed convergence, the function would terminate after max.iter iterations
 #' @param precision the minimum difference of Betas between each iterations. If no difference is more than precision, stop the iteration.
-#' 
-#' @examples
-#' StochasticGradientDescent(as.matrix(c(1,2,3,4,5), as.matrix(c(1,2,3,4,5), alpha=0.01)
-#' 
 #' @export
 
 StochasticGradientDescent <- function(X, Y, alpha = 1, max.iter = 1000, precision = 0.0001){
