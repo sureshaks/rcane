@@ -38,5 +38,20 @@ CoordinateDescent <- function(X, Y, max.iter = 1000) {
       j <- j+1
     }
   }
-  B
+  
+  fv <- X %*% B
+  rs <- Y - fv
+  coef <- as.vector(B)
+  names(coef) <- colnames(X)
+  
+  z <- structure(list(
+    x=X,
+    y=Y,
+    coefficients = coef,
+    fitted.values = fv,
+    residuals = rs
+  ),
+  class = "rlm")
+  
+  z
 }

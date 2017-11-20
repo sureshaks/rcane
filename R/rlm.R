@@ -12,7 +12,7 @@ NULL
 #' 
 #' @param formula an object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted.
 #' @param data an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which lm is called.
-#' @param method the method to be used. Possible values include "bgd", "sgd", "cgd" and "mini-bgd".
+#' @param method the method to be used. Possible values include "bgd", "sgd", "cd" and "mini-bgd".
 #' @param alpha the learning rate - typically this would be set to the optimum value
 #' @param max.iter the maximum number of iterations - in case of delayed convergence, the function would terminate after max.iter iterations
 #' @param precision the precision of the result
@@ -44,6 +44,12 @@ rlm <- function (formula, data, method = "sgd", alpha=1, max.iter=1000, precisio
     z <- (StochasticGradientDescent(x, y, alpha, max.iter, precision, ...))
   } else if (method == "bgd"){
     z <- (BatchGradientDescent(x, y, alpha, max.iter, precision, ...))
+  } else if (method == 'mini-bgd'){
+    z <- (MiniBatchGradientDescent(x, y, alpha, max.iter, precision, ...))
+  } else if (method == 'cd'){
+    z <- (CoordinateDescent(x, y, alpha, max.iter, precision, ...))
+  } else {
+    stop(gettextf("%d not implemented", method))
   }
   
   class(z) <- "rlm"

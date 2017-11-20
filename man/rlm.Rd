@@ -17,7 +17,7 @@ rlm(formula, data, method = "sgd", alpha = 1, max.iter = 1000,
 
 \item{data}{an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model. If not found in data, the variables are taken from environment(formula), typically the environment from which lm is called.}
 
-\item{method}{the method to be used. Possible values include "bgd", "sgd", "cgd" and "mini-bgd".}
+\item{method}{the method to be used. Possible values include "bgd", "sgd", "cd" and "mini-bgd".}
 
 \item{alpha}{the learning rate - typically this would be set to the optimum value}
 

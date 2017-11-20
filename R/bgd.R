@@ -35,6 +35,7 @@ BatchGradientDescent <- function(X, Y, alpha=0.0004, max.iter=1000, precision=0.
     }
   }
   
+  names(B) <- colnames(X)
   fv <- X %*% B
   rs <- Y - fv
   coef <- as.vector(B)
