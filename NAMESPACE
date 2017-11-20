@@ -2,3 +2,4 @@
 
 S3method(print,rlm)
 export(rlm)
+import(stats)
