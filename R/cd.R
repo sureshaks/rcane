@@ -40,6 +40,3 @@ CoordinateDescent <- function(X, Y, max.iter = 1000) {
   }
   B
 }
-    
-
-coordinate(X,Y)
