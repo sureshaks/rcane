@@ -21,7 +21,6 @@ BatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=1000, precision=0.000
   
   # Initial value of coefficients
   B <- rep(0, ncol(X))
-  names(B) <- colnames(X)
   err <- NA
   for(iter in 1:max.iter){
     B.prev <- B
@@ -44,7 +43,7 @@ BatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=1000, precision=0.000
       }
     }
   }
-
+  names(B) <- colnames(X)
   fv <- X %*% B
   rs <- Y - fv
   coef <- as.vector(B)
