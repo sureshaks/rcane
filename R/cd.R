@@ -1,4 +1,4 @@
-CoordinateDescent <- function(X, Y, max.iter = 1000) {
+CoordinateDescent <- function(X, Y, max.iter = 1000, precision = 0.0001) {
   if (is.null(n <- nrow(X))) stop("'X' must be a matrix")
   
   if(n == 0L) stop("0 (non-NA) cases")
@@ -22,12 +22,8 @@ CoordinateDescent <- function(X, Y, max.iter = 1000) {
   B <- rep(0, ncol(X))
   names(B) <- colnames(X)
   
-  cost <- NULL
-  n <- 1
-  tolerance <- 2
-  p <- 0
- 
   for(i in 1:max.iter) {
+    B.prev <- B
     for(j in (1:length(B))) {
       hx <- (X[,-j,drop=FALSE] %*% as.matrix(B[-j]))
       derrivative <- (Y-hx)
@@ -37,6 +33,12 @@ CoordinateDescent <- function(X, Y, max.iter = 1000) {
       
       j <- j+1
     }
+
+  if(any(is.na(B)) ||
+     !any(abs(B.prev - B) > precision * B)){
+    break
+  }
+
   }
   
   fv <- X %*% B

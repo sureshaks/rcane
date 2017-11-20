@@ -47,7 +47,7 @@ rlm <- function (formula, data, method = "sgd", alpha=1, max.iter=1000, precisio
   } else if (method == 'mini-bgd'){
     z <- (MiniBatchGradientDescent(x, y, alpha, max.iter, precision, ...))
   } else if (method == 'cd'){
-    z <- (CoordinateDescent(x, y, alpha, max.iter, precision, ...))
+    z <- (CoordinateDescent(x, y, max.iter, ...))
   } else {
     stop(gettextf("%d not implemented", method))
   }

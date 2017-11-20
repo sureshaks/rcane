@@ -4,6 +4,7 @@
 \name{rlm}
 \alias{rlm}
 \alias{rlm-package}
+\alias{rlm}
 \alias{print.rlm}
 \title{RCANE}
 \usage{
@@ -30,6 +31,8 @@ rlm(formula, data, method = "sgd", alpha = 1, max.iter = 1000,
 \item{x}{The object to be printed.}
 }
 \description{
+RCANE
+
 \code{rlm} is an interface for the optimization functions written in the rcane project.
 }
 \section{Methods (by generic)}{
