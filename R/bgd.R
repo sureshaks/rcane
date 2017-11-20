@@ -1,4 +1,4 @@
-BatchGradientDescent <- function(X, Y, alpha=0.0004, max.iter=1000, precision=0.0001) {
+BatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=1000, precision=0.0001) {
   if (is.null(n <- nrow(X))) stop("'X' must be a matrix")
   
   if(n == 0L) stop("0 (non-NA) cases")
@@ -22,19 +22,29 @@ BatchGradientDescent <- function(X, Y, alpha=0.0004, max.iter=1000, precision=0.
   # Initial value of coefficients
   B <- rep(0, ncol(X))
   names(B) <- colnames(X)
-  
+  err <- NA
   for(iter in 1:max.iter){
     B.prev <- B
-    
+    err.prev <- err
     yhat <- X %*% B
     B <- B + 2 * alpha * t(X) %*% (Y - yhat)
-
+    
     if(any(is.na(B)) ||
        !any(abs(B.prev - B) > precision * B)){
       break
     }
+    
+    err <- error(Y,yhat)
+    if(!is.na(err.prev)) {
+      if(err <= err.prev) {
+        alpha <- alpha + alpha * 0.1
+      } else {
+        B <- B.prev
+        alpha <- alpha - alpha * 0.5
+      }
+    }
   }
-  
+
   fv <- X %*% B
   rs <- Y - fv
   coef <- as.vector(B)
@@ -51,3 +61,8 @@ BatchGradientDescent <- function(X, Y, alpha=0.0004, max.iter=1000, precision=0.
   
   z
 }
+
+error <- function(actual, predicted) {
+  sqrt(sum((actual-predicted)^2))
+}
+
