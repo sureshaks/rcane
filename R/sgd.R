@@ -29,9 +29,9 @@ StochasticGradientDescent <- function(X, Y, alpha = 1, max.iter = 1000, precisio
     for(i in 1:nrow(X)){
       x <- X[i,, drop=FALSE]
       y <- Y[i]
+      y.hat <- x %*% B
       g <- (t(x) %*% (y - y.hat)) ^ 2
       G <- G + g
-      y.hat <- x %*% B
       B <- B + 1/(sqrt(G + 1e-8)) * alpha * (t(x) %*% (y - y.hat))
     }
     
