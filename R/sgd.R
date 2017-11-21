@@ -22,16 +22,17 @@ StochasticGradientDescent <- function(X, Y, alpha = 1, max.iter = 1000, precisio
   # Initial value of coefficients
   B     <- rep(0, ncol(X))
   names(B) <- colnames(X)
-
+  G <- matrix(rep(0,ncol(X)), ncol=1)
   for(iter in 1:max.iter){
     B.prev <- B
     
     for(i in 1:nrow(X)){
       x <- X[i,, drop=FALSE]
       y <- Y[i]
-      
+      g <- (t(x) %*% (y - y.hat)) ^ 2
+      G <- G + g
       y.hat <- x %*% B
-      B <- B + alpha * (t(x) %*% (y - y.hat))
+      B <- B + 1/(sqrt(G + 1e-8)) * alpha * (t(x) %*% (y - y.hat))
     }
     
     if(any(is.na(B)) ||
