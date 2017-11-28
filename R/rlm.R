@@ -24,6 +24,9 @@ NULL
 #' 
 #' @export
 rlm <- function (formula, data, method = "sgd", alpha=1, max.iter=1000, precision=0.0001, ...){
+  if(!method %in% c("bgd", "sgd", "cd", "mini-bgd")) {
+    stop("'method' should be one of 'bgd', 'sgd', 'cd', 'mini-bgd'")
+  }
   cl <- match.call()
   if ( as.character(formula[[1]]) != "~" )
     stop("invalid formula")
