@@ -5,13 +5,10 @@
 \alias{rlm}
 \alias{rlm-package}
 \alias{rlm}
-\alias{print.rlm}
 \title{RCANE}
 \usage{
 rlm(formula, data, method = "sgd", alpha = 1, max.iter = 1000,
   precision = 1e-04, ...)
-
-\method{print}{rlm}(x, ...)
 }
 \arguments{
 \item{formula}{an object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted.}
@@ -27,19 +24,12 @@ rlm(formula, data, method = "sgd", alpha = 1, max.iter = 1000,
 \item{precision}{the precision of the result}
 
 \item{...}{additional arguments to be passed to the low level regression fitting functions.}
-
-\item{x}{The object to be printed.}
 }
 \description{
 RCANE
 
 \code{rlm} is an interface for the optimization functions written in the rcane project.
 }
-\section{Methods (by generic)}{
-\itemize{
-\item \code{print}: Print method for rlm
-}}
-
 \examples{
 library(datasets)
 rlm(mpg ~ disp, data = mtcars, alpha = 0.00001)

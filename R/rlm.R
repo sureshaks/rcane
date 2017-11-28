@@ -23,7 +23,6 @@ NULL
 #' rlm(mpg ~ disp, data = mtcars, alpha = 0.00001)
 #' 
 #' @export
-
 rlm <- function (formula, data, method = "sgd", alpha=1, max.iter=1000, precision=0.0001, ...){
   cl <- match.call()
   if ( as.character(formula[[1]]) != "~" )
@@ -55,24 +54,7 @@ rlm <- function (formula, data, method = "sgd", alpha=1, max.iter=1000, precisio
   class(z) <- "rlm"
   z$call <- cl
   z$method <- method
+  z$formula <- formula
+  z$terms <- mt
   z
-}
-
-
-#' @describeIn rlm Print method for rlm
-#' 
-#' @param x The object to be printed.
-#'  
-#' @method print rlm
-#' @export
-
-print.rlm <- function(x, ...){
-  cat("\nCall:\n")
-  print(x$call)
-  cat("\nCoefficients\n")
-  if(length(x$coefficients)){
-    print(x$coefficients)
-  } else {
-    print("No coefficients\n")
-  }
 }
