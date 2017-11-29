@@ -23,6 +23,11 @@ StochasticGradientDescent <- function(X, Y, alpha = 1, max.iter = 1000, precisio
   B     <- rep(0, ncol(X))
   names(B) <- colnames(X)
   G <- matrix(rep(0,ncol(X)), ncol=1)
+  # Record loss vs iteration
+  loss_iter <- data.frame(
+    loss = numeric(),
+    iter = integer()
+  )
   for(iter in 1:max.iter){
     B.prev <- B
     
@@ -30,10 +35,13 @@ StochasticGradientDescent <- function(X, Y, alpha = 1, max.iter = 1000, precisio
       x <- X[i,, drop=FALSE]
       y <- Y[i]
       y.hat <- x %*% B
-      g <- (t(x) %*% (y - y.hat)) ^ 2
+      g <- (t(x) %*% (y-y.hat)) ^ 2
       G <- G + g
       B <- B + 1/(sqrt(G + 1e-8)) * alpha * (t(x) %*% (y - y.hat))
     }
+    
+    loss <- Y - X %*% B
+    loss_iter <- rbind(loss_iter, c(sqrt(mean(loss^2)), iter))
     
     if(any(is.na(B)) ||
        !any(abs(B.prev - B) > precision * B)){
@@ -45,13 +53,15 @@ StochasticGradientDescent <- function(X, Y, alpha = 1, max.iter = 1000, precisio
   rs <- Y - fv
   coef <- as.vector(B)
   names(coef) <- rownames(B)
+  colnames(loss_iter) <- c('loss', 'iter')
   
   z <- structure(list(
     x=X,
     y=Y,
     coefficients = coef,
     fitted.values = fv,
-    residuals = rs
+    residuals = rs,
+    loss_iter = loss_iter
     ),
     class = "rlm")
   

@@ -22,11 +22,18 @@ BatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=1000, precision=0.000
   # Initial value of coefficients
   B <- rep(0, ncol(X))
   err <- NA
+  # Record loss vs iteration
+  loss_iter <- data.frame(
+    loss = numeric(),
+    iter = integer()
+  )
   for(iter in 1:max.iter){
     B.prev <- B
     err.prev <- err
     yhat <- X %*% B
-    B <- B + 2 * alpha * t(X) %*% (Y - yhat)
+    loss <- Y - yhat
+    loss_iter <- rbind(loss_iter, c(sqrt(mean(loss^2)), iter))
+    B <- B + 2 * alpha * t(X) %*% (loss)
     
     if(any(is.na(B)) ||
        !any(abs(B.prev - B) > precision * B)){
@@ -48,13 +55,15 @@ BatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=1000, precision=0.000
   rs <- Y - fv
   coef <- as.vector(B)
   names(coef) <- rownames(B)
+  colnames(loss_iter) <- c('loss', 'iter')
   
   z <- structure(list(
     x=X,
     y=Y,
     coefficients = coef,
     fitted.values = fv,
-    residuals = rs
+    residuals = rs,
+    loss_iter = loss_iter
     ),
     class = "rlm")
   
