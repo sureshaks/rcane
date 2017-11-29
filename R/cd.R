@@ -21,8 +21,13 @@ CoordinateDescent <- function(X, Y, max.iter = 1000, precision = 0.0001) {
   
   B <- rep(0, ncol(X))
   names(B) <- colnames(X)
+  # Record loss vs iteration
+  loss_iter <- data.frame(
+    loss = numeric(),
+    iter = integer()
+  )
   
-  for(i in 1:max.iter) {
+  for(iter in 1:max.iter) {
     B.prev <- B
     for(j in (1:length(B))) {
       hx <- (X[,-j,drop=FALSE] %*% as.matrix(B[-j]))
@@ -33,25 +38,29 @@ CoordinateDescent <- function(X, Y, max.iter = 1000, precision = 0.0001) {
       
       j <- j+1
     }
-
-  if(any(is.na(B)) ||
-     !any(abs(B.prev - B) > precision * B)){
-    break
-  }
-
+    
+    loss <- Y - X %*% B
+    loss_iter <- rbind(loss_iter, c(sqrt(mean(loss^2)), iter))
+  
+    if(any(is.na(B)) ||
+       !any(abs(B.prev - B) > precision * B)){
+      break
+    }
   }
   
   fv <- X %*% B
   rs <- Y - fv
   coef <- as.vector(B)
   names(coef) <- colnames(X)
+  colnames(loss_iter) <- c('loss', 'iter')
   
   z <- structure(list(
     x=X,
     y=Y,
     coefficients = coef,
     fitted.values = fv,
-    residuals = rs
+    residuals = rs,
+    loss_iter = loss_iter
   ),
   class = "rlm")
   
