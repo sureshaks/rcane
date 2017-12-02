@@ -1,3 +1,7 @@
+#' @rdname rlm.summaries
+#' 
+#' @method print rlm
+#' @export
 print.rlm <- function(x, ...) {
   cat("\nCall:\n")
   print(x$call)

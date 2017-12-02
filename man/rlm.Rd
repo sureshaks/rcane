@@ -4,7 +4,6 @@
 \name{rlm}
 \alias{rlm}
 \alias{rlm-package}
-\alias{rlm}
 \title{RCANE}
 \usage{
 rlm(formula, data, method = "sgd", alpha = 1, max.iter = 1000,
@@ -26,8 +25,6 @@ rlm(formula, data, method = "sgd", alpha = 1, max.iter = 1000,
 \item{...}{additional arguments to be passed to the low level regression fitting functions.}
 }
 \description{
-RCANE
-
 \code{rlm} is an interface for the optimization functions written in the rcane project.
 }
 \examples{

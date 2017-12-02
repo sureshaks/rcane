@@ -19,9 +19,9 @@ CoordinateDescent <- function(X, Y, max.iter = 1000, precision = 0.0001) {
     stop("incompatible dimensions")
   }
   
+  # Initial value of coefficients
   B <- rep(0, ncol(X))
-  names(B) <- colnames(X)
-  # Record loss vs iteration
+  # Recorded for loss vs iteration
   loss_iter <- data.frame(
     loss = numeric(),
     iter = integer()
@@ -29,14 +29,13 @@ CoordinateDescent <- function(X, Y, max.iter = 1000, precision = 0.0001) {
   
   for(iter in 1:max.iter) {
     B.prev <- B
-    for(j in (1:length(B))) {
-      hx <- (X[,-j,drop=FALSE] %*% as.matrix(B[-j]))
+
+    for(j in 1:length(B)) {
+      hx <- (X[, -j, drop=FALSE] %*% as.matrix(B[-j]))
       derrivative <- (Y-hx)
-      derrivative <- ifelse(derrivative<0.001,0,derrivative)
+      derrivative <- ifelse(derrivative < precision, 0, derrivative)
     
-      B[j] <- (1/norm(as.matrix(X[,j]),"F")^2)*(t(derrivative)%*%X[,j])
-      
-      j <- j+1
+      B[j] <- (1/norm(as.matrix(X[,j]), "F")^2) * (t(derrivative) %*% X[,j])
     }
     
     loss <- Y - X %*% B
@@ -48,10 +47,11 @@ CoordinateDescent <- function(X, Y, max.iter = 1000, precision = 0.0001) {
     }
   }
   
+  names(B) <- colnames(X)
   fv <- X %*% B
   rs <- Y - fv
   coef <- as.vector(B)
-  names(coef) <- colnames(X)
+  names(coef) <- rownames(B)
   colnames(loss_iter) <- c('loss', 'iter')
   
   z <- structure(list(

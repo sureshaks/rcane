@@ -1,4 +1,8 @@
-fitted.values.rlm <- function(object, ...) {
+#' @rdname rlm.summaries
+#' 
+#' @method fitted rlm
+#' @export
+fitted.rlm <- function(object, ...) {
   if(length(object$fitted.values)){
     print(object$fitted.values)
   } else {

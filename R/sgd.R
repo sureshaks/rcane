@@ -1,4 +1,4 @@
-StochasticGradientDescent <- function(X, Y, alpha = 1, max.iter = 1000, precision = 0.0001){
+StochasticGradientDescent <- function(X, Y, alpha = 1, max.iter = 1000, precision = 0.0001, seed=1){
   if (is.null(n <- nrow(X))) stop("'X' must be a matrix")
   
   if(n == 0L) stop("0 (non-NA) cases")
@@ -18,12 +18,16 @@ StochasticGradientDescent <- function(X, Y, alpha = 1, max.iter = 1000, precisio
   if(NROW(Y) != n) {
     stop("incompatible dimensions")
   }
-  
+
+  # Shuffle data
+  set.seed(seed)
+  X <- X[sample(nrow(X)), ]
+  set.seed(NULL)
   # Initial value of coefficients
-  B     <- rep(0, ncol(X))
-  names(B) <- colnames(X)
+  B <- rep(0, ncol(X))
+  # Recorded for AdaGrad
   G <- matrix(rep(0,ncol(X)), ncol=1)
-  # Record loss vs iteration
+  # Recorded for loss vs iteration
   loss_iter <- data.frame(
     loss = numeric(),
     iter = integer()
@@ -34,12 +38,17 @@ StochasticGradientDescent <- function(X, Y, alpha = 1, max.iter = 1000, precisio
     for(i in 1:nrow(X)){
       x <- X[i,, drop=FALSE]
       y <- Y[i]
-      y.hat <- x %*% B
-      g <- (t(x) %*% (y-y.hat)) ^ 2
+      yhat <- x %*% B
+
+      # AdaGrad
+      g <- (t(x) %*% (y-yhat)) ^ 2
       G <- G + g
-      B <- B + 1/(sqrt(G + 1e-8)) * alpha * (t(x) %*% (y - y.hat))
+
+      # Use AdaGrad to update coefficients
+      B <- B + 1/(sqrt(G + 1e-8)) * alpha * (t(x) %*% (y - yhat))
     }
     
+    # Record loss vs iteration
     loss <- Y - X %*% B
     loss_iter <- rbind(loss_iter, c(sqrt(mean(loss^2)), iter))
     
@@ -49,6 +58,7 @@ StochasticGradientDescent <- function(X, Y, alpha = 1, max.iter = 1000, precisio
     }
   }
   
+  names(B) <- colnames(X)
   fv <- X %*% B
   rs <- Y - fv
   coef <- as.vector(B)

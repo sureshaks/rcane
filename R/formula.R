@@ -1,3 +1,7 @@
+#' @rdname rlm.summaries
+#' 
+#' @method formula rlm
+#' @export
 formula.rlm <- function(x, ...) {
   if(!is.null(x$formula)) {
     form <- formula(x$terms) # has . expanded

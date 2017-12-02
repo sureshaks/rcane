@@ -21,8 +21,9 @@ BatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=1000, precision=0.000
   
   # Initial value of coefficients
   B <- rep(0, ncol(X))
+  # Recored for bold driver
   err <- NA
-  # Record loss vs iteration
+  # Recorded for loss vs iteration
   loss_iter <- data.frame(
     loss = numeric(),
     iter = integer()
@@ -30,16 +31,21 @@ BatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=1000, precision=0.000
   for(iter in 1:max.iter){
     B.prev <- B
     err.prev <- err
+
     yhat <- X %*% B
+
+    # Record loss vs itertation
     loss <- Y - yhat
     loss_iter <- rbind(loss_iter, c(sqrt(mean(loss^2)), iter))
-    B <- B + 2 * alpha * t(X) %*% (loss)
+
+    B <- B + alpha * t(X) %*% (loss)
     
     if(any(is.na(B)) ||
        !any(abs(B.prev - B) > precision * B)){
       break
     }
     
+    # Use BoldDriver to update coefficients
     err <- error(Y,yhat)
     if(!is.na(err.prev)) {
       if(err <= err.prev) {
@@ -50,6 +56,7 @@ BatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=1000, precision=0.000
       }
     }
   }
+  
   names(B) <- colnames(X)
   fv <- X %*% B
   rs <- Y - fv

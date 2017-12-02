@@ -1,28 +1,47 @@
 MiniBatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=10, precision=0.0001, batchRate=0.5, seed=1){
-  #shuffle data
+  if (is.null(n <- nrow(X))) stop("'X' must be a matrix")
+  
+  if(n == 0L) stop("0 (non-NA) cases")
+  
+  p <- ncol(X)
+  
+  if(p == 0L) {
+    return(list(
+      x = X,
+      y = Y,
+      coefficients = numeric(),
+      residuals = Y,
+      fitted.values = 0 * Y
+    ))
+  }
+  
+  if(NROW(Y) != n) {
+    stop("incompatible dimensions")
+  }
+
+  # Shuffle data
   set.seed(seed)
   X <- X[sample(nrow(X)), ]
   set.seed(NULL)
-  #initialize theta
+  # Initial value of coefficients
   B <- rep(0, ncol(X))
-  #constant variables
-  rowLength <- nrow(X)
-  batchSize <- ceiling(rowLength * batchRate)
-  # Record loss vs iteration
+  # batch size
+  batchSize <- ceiling(n * batchRate)
+  # Recorded for loss vs iteration
   loss_iter <- data.frame(
     loss = numeric(),
     iter = integer()
   )
-  #loop the gradient descent
   for(iter in 1:max.iter){
     B.prev <- B
-    for(i in seq(1, rowLength, batchSize)){
-      indexes <- i:min((i+batchSize), rowLength)
+
+    for(i in seq(1, n, batchSize)){
+      indexes <- i:min((i+batchSize), n)
       Xtemp <- X[indexes,,drop=FALSE]
       Ytemp <- Y[indexes,drop=FALSE]
       
       yhat <- Xtemp %*% B
-      B <- B + 2 * (alpha / length(indexes)) * t(Xtemp) %*% (Ytemp - yhat)
+      B <- B + (alpha / length(indexes)) * t(Xtemp) %*% (Ytemp - yhat)
     }
     
     loss <- Y - X %*% B
@@ -36,10 +55,11 @@ MiniBatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=10, precision=0.0
     X <- X[sample(nrow(X)), ]
   }
   
+  names(B) <- colnames(X)
   fv <- X %*% B
   rs <- Y - fv
   coef <- as.vector(B)
-  names(coef) <- colnames(X)
+  names(coef) <- rownames(B)
   colnames(loss_iter) <- c('loss', 'iter')
   
   z <- structure(list(
