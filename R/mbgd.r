@@ -1,4 +1,4 @@
-MiniBatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=10, precision=0.0001, batchRate=0.5, seed=1){
+MiniBatchGradientDescent <- function(X, Y, alpha=1, max.iter=10, precision=0.0001, batchRate=0.5, seed=1){
   if (is.null(n <- nrow(X))) stop("'X' must be a matrix")
   
   if(n == 0L) stop("0 (non-NA) cases")
@@ -19,10 +19,6 @@ MiniBatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=10, precision=0.0
     stop("incompatible dimensions")
   }
 
-  # Shuffle data
-  set.seed(seed)
-  X <- X[sample(nrow(X)), ]
-  set.seed(NULL)
   # Initial value of coefficients
   B <- rep(0, ncol(X))
   # batch size
@@ -51,8 +47,6 @@ MiniBatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=10, precision=0.0
        !any(abs(B.prev - B) > precision * B)){
       break
     }
-    
-    X <- X[sample(nrow(X)), ]
   }
   
   names(B) <- colnames(X)

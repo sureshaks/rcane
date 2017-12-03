@@ -51,7 +51,7 @@ CoordinateDescent <- function(X, Y, max.iter = 1000, precision = 0.0001) {
   fv <- X %*% B
   rs <- Y - fv
   coef <- as.vector(B)
-  names(coef) <- rownames(B)
+  names(coef) <- names(B)
   colnames(loss_iter) <- c('loss', 'iter')
   
   z <- structure(list(

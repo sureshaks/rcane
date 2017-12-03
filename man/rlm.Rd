@@ -6,7 +6,7 @@
 \alias{rlm-package}
 \title{RCANE}
 \usage{
-rlm(formula, data, method = "sgd", alpha = 1, max.iter = 1000,
+rlm(formula, data, method = "sgd", alpha = 0.1, max.iter = 1000,
   precision = 1e-04, ...)
 }
 \arguments{

@@ -38,7 +38,7 @@ BatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=1000, precision=0.000
     loss <- Y - yhat
     loss_iter <- rbind(loss_iter, c(sqrt(mean(loss^2)), iter))
 
-    B <- B + alpha * t(X) %*% (loss)
+    B <- B + alpha/n * t(X) %*% (loss)
     
     if(any(is.na(B)) ||
        !any(abs(B.prev - B) > precision * B)){

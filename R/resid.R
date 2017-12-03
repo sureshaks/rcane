@@ -4,7 +4,7 @@
 #' @export
 resid.rlm <- function(object, ...) {
   if(length(object$residuals)){
-    print(object$residuals)
+    return(object$residuals)
   } else {
     print("No residuals\n")
   }

@@ -2,7 +2,7 @@
 #' @description Plot the result of loss function and number of iterations.
 #' @export
 #' @importFrom graphics plot
-plotLoss <- function(object) UseMethod("plot_lossIter")
+plotLoss <- function(object) UseMethod("plotLoss")
 
 #' @describeIn plotLoss Plot loss vs iteration of rlm object
 #' @method plotLoss rlm
