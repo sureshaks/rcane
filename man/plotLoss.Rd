@@ -18,7 +18,7 @@ plotLoss(object)
 \item{...}{other arguments}
 }
 \description{
-Plot the result of loss function and number of iterations.
+Plot the result of loss function vs number of iterations.
 }
 \section{Methods (by class)}{
 \itemize{

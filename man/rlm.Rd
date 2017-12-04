@@ -7,7 +7,7 @@
 \title{RCANE}
 \usage{
 rlm(formula, data, method = "sgd", alpha = 0.1, max.iter = 1000,
-  precision = 1e-04, ...)
+  precision = 1e-04, boldDriver = FALSE, AdaGrad = FALSE, ...)
 }
 \arguments{
 \item{formula}{an object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted.}
@@ -21,6 +21,10 @@ rlm(formula, data, method = "sgd", alpha = 0.1, max.iter = 1000,
 \item{max.iter}{the maximum number of iterations - in case of delayed convergence, the function would terminate after max.iter iterations}
 
 \item{precision}{the precision of the result}
+
+\item{boldDriver}{set \code{TRUE} to use bold driver for method='bgd'}
+
+\item{AdaGrad}{set \code{TRUE} to use AdaGrad for method='sgd'}
 
 \item{...}{additional arguments to be passed to the low level regression fitting functions.}
 }

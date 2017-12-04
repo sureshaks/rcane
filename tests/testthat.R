@@ -7,7 +7,7 @@ test_that("check for valid methods", {
   expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='bgd', alpha=0.01), NA)
   expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='sgd', alpha=0.01), NA)
   expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='mini-bgd', alpha=0.01), NA)
-  expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='cd', alpha=0.01), NA)
+  expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='cd'), NA)
   expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='xxx', alpha=0.01))
   expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='', alpha=0.01))
   expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='bgdsgd', alpha=0.01))
@@ -49,28 +49,40 @@ test_that("NA in data frame", {
 })
 
 context("Regression")
-set.seed(123)
-
-TRUE_B0 = 2
-TRUE_B1 = 3
-
-x1 <- runif(10000, -2, 2)
-e <- rnorm(10000, 0, 4)
-y <- x1*TRUE_B0 + TRUE_B1 + e
-
-df.test4 = data.frame(x1, x2, y)
+  set.seed(123)
+  
+  TRUE_B0 = 2
+  TRUE_B1 = 3
+  
+  x1 <- runif(10000, -2, 2)
+  e <- rnorm(10000, 0, 4)
+  y <- x1*TRUE_B0 + TRUE_B1 + e
+  
+  df.test4 = data.frame(x1, x2, y)
 
 test_that("manual created dataframe", {
   expect_equal(coef(rcane::rlm(y~x1+x2, df.test4, method="bgd")), 
                 coef(lm(y~x1+x2, df.test4)),
-                tolerance = 0.01)
+                tolerance = 0.005)
   expect_equal(coef(rcane::rlm(y~x1+x2, df.test4, method="mini-bgd")), 
                coef(lm(y~x1+x2, df.test4)),
-               tolerance = 0.001)
-  #expect_equal(coef(rcane::rlm(y~x1+x2, df.test4, method="cd")), 
-  #             coef(lm(y~x1+x2, df.test4)),
-  #             tolerance = 0.001)
+               tolerance = 0.005)
+  expect_equal(coef(rcane::rlm(y~x1+x2, df.test4, method="cd")), 
+               coef(lm(y~x1+x2, df.test4)),
+               tolerance = 0.005)
   expect_equal(coef(rcane::rlm(y~x1+x2, df.test4, method="sgd")), 
                     coef(lm(y~x1+x2, df.test4)),
-                    tolerance = 0.01)
+                    tolerance = 0.005)
+})
+
+test_that("bold driver", {
+  expect_equal(coef(rcane::rlm(y~x1+x2, df.test4, method="bgd", alpha=1000, boldDriver=TRUE)), 
+               coef(lm(y~x1+x2, df.test4)),
+               tolerance = 0.005)
+})
+
+test_that("adagrad", {
+  expect_equal(coef(rcane::rlm(y~x1+x2, df.test4, method="sgd", alpha=1000000, max.iter=100, AdaGrad=TRUE)),
+               coef(lm(y~x1+x2, df.test4)),
+               tolerance = 0.1)
 })

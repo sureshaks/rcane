@@ -1,5 +1,5 @@
 #' @title plotLoss: Plot loss vs iteration graph
-#' @description Plot the result of loss function and number of iterations.
+#' @description Plot the result of loss function vs number of iterations.
 #' @export
 #' @importFrom graphics plot
 plotLoss <- function(object) UseMethod("plotLoss")

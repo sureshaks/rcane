@@ -1,4 +1,4 @@
-CoordinateDescent <- function(X, Y, max.iter = 1000, precision = 0.0001) {
+CoordinateDescent <- function(X, Y, max.iter = 10000, precision = 0.0001) {
   if (is.null(n <- nrow(X))) stop("'X' must be a matrix")
   
   if(n == 0L) stop("0 (non-NA) cases")
@@ -20,7 +20,7 @@ CoordinateDescent <- function(X, Y, max.iter = 1000, precision = 0.0001) {
   }
   
   # Initial value of coefficients
-  B <- rep(0, ncol(X))
+  B <- rnorm(ncol(x), 0, 1)
   # Recorded for loss vs iteration
   loss_iter <- data.frame(
     loss = numeric(),
@@ -33,7 +33,6 @@ CoordinateDescent <- function(X, Y, max.iter = 1000, precision = 0.0001) {
     for(j in 1:length(B)) {
       hx <- (X[, -j, drop=FALSE] %*% as.matrix(B[-j]))
       derrivative <- (Y-hx)
-      derrivative <- ifelse(derrivative < precision, 0, derrivative)
     
       B[j] <- (1/norm(as.matrix(X[,j]), "F")^2) * (t(derrivative) %*% X[,j])
     }

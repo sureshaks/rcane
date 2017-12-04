@@ -16,6 +16,8 @@ NULL
 #' @param alpha the learning rate - typically this would be set to the optimum value
 #' @param max.iter the maximum number of iterations - in case of delayed convergence, the function would terminate after max.iter iterations
 #' @param precision the precision of the result
+#' @param boldDriver set \code{TRUE} to use bold driver for method='bgd'
+#' @param AdaGrad set \code{TRUE} to use AdaGrad for method='sgd'
 #' @param ... additional arguments to be passed to the low level regression fitting functions.
 #' 
 #' @examples
@@ -23,7 +25,7 @@ NULL
 #' rlm(mpg ~ disp, data = mtcars, alpha = 0.00001)
 #' 
 #' @export
-rlm <- function (formula, data, method = "sgd", alpha=0.1, max.iter=1000, precision=0.0001, ...){
+rlm <- function (formula, data, method = "sgd", alpha=0.1, max.iter=1000, precision=0.0001, boldDriver=FALSE, AdaGrad=FALSE, ...){
   if(!method %in% c("bgd", "sgd", "cd", "mini-bgd")) {
     stop("'method' should be one of 'bgd', 'sgd', 'cd', 'mini-bgd'")
   }
@@ -44,9 +46,9 @@ rlm <- function (formula, data, method = "sgd", alpha=0.1, max.iter=1000, precis
   
   z = NA
   if(method == "sgd"){
-    z <- (StochasticGradientDescent(x, y, alpha, max.iter, precision, ...))
+    z <- (StochasticGradientDescent(x, y, alpha, max.iter, precision, AdaGrad, ...))
   } else if (method == "bgd"){
-    z <- (BatchGradientDescent(x, y, alpha, max.iter, precision, ...))
+    z <- (BatchGradientDescent(x, y, alpha, max.iter, precision, boldDriver, ...))
   } else if (method == 'mini-bgd'){
     z <- (MiniBatchGradientDescent(x, y, alpha, max.iter, precision, ...))
   } else if (method == 'cd'){
