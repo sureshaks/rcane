@@ -20,7 +20,7 @@ CoordinateDescent <- function(X, Y, max.iter = 10000, precision = 0.0001) {
   }
   
   # Initial value of coefficients
-  B <- rnorm(ncol(x), 0, 1)
+  B <- rnorm(ncol(X), 0, 1)
   # Recorded for loss vs iteration
   loss_iter <- data.frame(
     loss = numeric(),
