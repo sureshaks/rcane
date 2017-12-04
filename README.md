@@ -36,7 +36,7 @@ We use 4 different algorithms:
 
 <img src="man/figures/dreadfulmath.png" align="center" />
 
-<table>
+<table rules="none">
 <tr>
     <th> 
       Batch
