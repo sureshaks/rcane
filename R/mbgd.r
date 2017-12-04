@@ -1,4 +1,4 @@
-MiniBatchGradientDescent <- function(X, Y, alpha=1, max.iter=10, precision=0.0001, batchRate=0.5, seed=1){
+MiniBatchGradientDescent <- function(X, Y, alpha=1, max.iter=1000, precision=0.0001, batchRate=0.5, seed=1){
   if (is.null(n <- nrow(X))) stop("'X' must be a matrix")
   
   if(n == 0L) stop("0 (non-NA) cases")
