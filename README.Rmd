@@ -30,7 +30,14 @@ This is what we did...
 
 <img src="man/figures/whatwedid.png" align="center" />
 
+A little more info
+
+<img src="man/figures/moreinfo.png" align="center" />
+
 We start with arbitrary parameter estimates for linear regression and slide down to the optimal values.
+
+
+
 
 
 ## But how?
@@ -74,7 +81,6 @@ We use 4 different algorithms:
     </td>
   </tr>
 </table>  
-
 
 
 
