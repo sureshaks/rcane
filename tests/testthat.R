@@ -1,38 +1,37 @@
 library(testthat)
 library(rcane)
-library(tidyverse)
 
 context("input parameter check")
 
 test_that("check for valid methods", {
-  expect_error(rcane::rlm(cty~hwy, mpg, method='bgd'), NA)
-  expect_error(rcane::rlm(cty~hwy, mpg, method='sgd'), NA)
-  expect_error(rcane::rlm(cty~hwy, mpg, method='mini-bgd'), NA)
-  expect_error(rcane::rlm(cty~hwy, mpg, method='cd'), NA)
-  expect_error(rcane::rlm(cty~hwy, mpg, method='xxx'))
-  expect_error(rcane::rlm(cty~hwy, mpg, method=''))
-  expect_error(rcane::rlm(cty~hwy, mpg, method='bgdsgd'))
+  expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='bgd', alpha=0.01), NA)
+  expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='sgd', alpha=0.01), NA)
+  expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='mini-bgd', alpha=0.01), NA)
+  expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='cd', alpha=0.01), NA)
+  expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='xxx', alpha=0.01))
+  expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='', alpha=0.01))
+  expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='bgdsgd', alpha=0.01))
 })
 
 context("input matrix check")
 
 test_that("Check parameters in dataframe", {
-  expect_error(rcane::rlm(cty~hwy, mpg, method='bgd'), NA)
-  expect_error(rcane::rlm(cty~trans, mpg, method='bgd'), NA)
-  expect_error(rcane::rlm(cty~trans + hwy, mpg, method='bgd'), NA)
-  expect_error(rcane::rlm(cty~., mpg, method='bgd'), NA)
-  expect_error(rcane::rlm(xxx~hwy, mpg, method='bgd'))
-  expect_error(rcane::rlm(cty~xxx, mpg, method='bgd'))
-  expect_error(rcane::rlm(cty~5566, mpg, method='bgd'))
-  expect_error(rcane::rlm(xxx~xxx, mpg, method='bgd'))
-  expect_warning(rcane::rlm(model~cty, mpg, method='bgd'))
+  expect_error(rcane::rlm(Sepal.Length~Sepal.Width, iris, method='bgd', alpha=0.01), NA)
+  expect_error(rcane::rlm(Sepal.Length~Petal.Width, iris, method='bgd', alpha=0.01), NA)
+  expect_error(rcane::rlm(Sepal.Length~Sepal.Width + Petal.Length, iris, method='bgd', alpha=0.01), NA)
+  expect_error(rcane::rlm(Sepal.Length~., iris, method='bgd', alpha=0.01), NA)
+  expect_error(rcane::rlm(xxx~Sepal.Width, iris, method='bgd', alpha=0.01))
+  expect_error(rcane::rlm(Sepal.Length~xxx, iris, method='bgd', alpha=0.01))
+  expect_error(rcane::rlm(Sepal.Length~5566, iris, method='bgd', alpha=0.01))
+  expect_error(rcane::rlm(xxx~xxx, iris, method='bgd', alpha=0.01))
+  expect_warning(rcane::rlm(Species~., iris, method='bgd', alpha=0.01))
 })
 
-f <- cty~hwy
+f <- Sepal.Length ~ Sepal.Width
 f[[1]] = `+`
 
 test_that("Invalid formula", {
-  expect_error(rcane::rlm(f, mpg, method='bgd'))
+  expect_error(rcane::rlm(f, iris, method='bgd'))
 })
 
 df.test <- data.frame(x = numeric(), y=numeric())
@@ -64,7 +63,7 @@ df.test4 = data.frame(x1, x2, y)
 test_that("manual created dataframe", {
   expect_equal(coef(rcane::rlm(y~x1+x2, df.test4, method="bgd")), 
                 coef(lm(y~x1+x2, df.test4)),
-                tolerance = 0.001)
+                tolerance = 0.01)
   expect_equal(coef(rcane::rlm(y~x1+x2, df.test4, method="mini-bgd")), 
                coef(lm(y~x1+x2, df.test4)),
                tolerance = 0.001)
@@ -73,16 +72,5 @@ test_that("manual created dataframe", {
   #             tolerance = 0.001)
   expect_equal(coef(rcane::rlm(y~x1+x2, df.test4, method="sgd")), 
                     coef(lm(y~x1+x2, df.test4)),
-                    tolerance = 0.001)
-})
-
-test_that("existing dataframe",{
-  expect_equal(coef(rcane::rlm(cty~hwy, mpg, method="bgd", alpha=0.001, max.iter=50000, precision=0.000000001)),
-               coef(lm(cty~hwy, mpg)),
-               tolerance = 0.001
-  )
-  expect_equal(coef(rcane::rlm(cty~hwy, mpg, method="sgd", alpha=1, max.iter=1000, precision=0.0000001, AdaGrad=TRUE)),
-               coef(lm(cty~hwy, mpg)),
-               tolerance = 0.1
-  )
+                    tolerance = 0.01)
 })
