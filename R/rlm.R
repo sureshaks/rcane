@@ -29,6 +29,15 @@ rlm <- function (formula, data, method = "sgd", alpha=0.1, max.iter=1000, precis
   if(!method %in% c("bgd", "sgd", "cd", "mini-bgd")) {
     stop("'method' should be one of 'bgd', 'sgd', 'cd', 'mini-bgd'")
   }
+  
+  if(boldDriver & method != "bgd") {
+    warning("Unused argument 'boldDriver'")
+  } 
+  
+  if(AdaGrad && method != "sgd") {
+    warning("Unused argument 'AdaGrad'")
+  }
+  
   cl <- match.call()
   
   if ( as.character(formula[[1]]) != "~" )
