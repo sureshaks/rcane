@@ -51,12 +51,10 @@ test_that("NA in data frame", {
 context("Regression")
   set.seed(123)
   
-  TRUE_B0 = 2
-  TRUE_B1 = 3
-  
   x1 <- runif(10000, -2, 2)
+  x2 <- runif(10000, -2, 2)
   e <- rnorm(10000, 0, 4)
-  y <- x1*TRUE_B0 + TRUE_B1 + e
+  y <- 2*x1 + 5*x2 + 10 + e
   
   df.test4 = data.frame(x1, x2, y)
 
