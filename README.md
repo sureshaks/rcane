@@ -1,4 +1,4 @@
-<img src="man/figures/logo.png" align="right" />
+<img src="man/figures/logo.png" />
 
 rcane
 =====
@@ -54,9 +54,7 @@ We use 4 different algorithms:
       <img src="man/figures/batch.png" align="center" />
     </td>
     <td>
-    </td>
       <img src="man/figures/stochastic.png" align="center" />
-    <td>
     </td>
     <td>
       <img src="man/figures/coordinate.png" align="center" />
