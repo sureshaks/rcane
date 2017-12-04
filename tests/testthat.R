@@ -84,3 +84,8 @@ test_that("adagrad", {
                coef(lm(y~x1+x2, df.test4)),
                tolerance = 0.1)
 })
+
+test_that("warnings for adagrad and bold driver", {
+  expect_warning(rcane::rlm(y~x1+x2, df.test4, method="bgd", alpha=1000000, max.iter=100, AdaGrad=TRUE))
+  expect_warning(rcane::rlm(y~x1+x2, df.test4, method="sgd", alpha=1000, boldDriver=TRUE))
+})
