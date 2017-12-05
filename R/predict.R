@@ -6,9 +6,9 @@ predict.rlm <- function(object, newdata, ...) {
   if(missing(newdata) || is.null(newdata)) {
     return(fitted(object))
   } else{
-    form <- formula(object$terms) # has . expanded
-    environment(form) <- environment(object$formula)
-    x <- model.matrix(form, newdata)
+    tt <- terms(object)
+    Terms <- delete.response(tt)
+    x <- model.matrix(Terms, newdata)
     return(as.matrix(x) %*% coef(object))
   }
 }
