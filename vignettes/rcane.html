@@ -100,185 +100,188 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <img src="data:image/png;base64,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" alt="Package flow" />
 <p class="caption">Package flow</p>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(rcane)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rcane)</code></pre></div>
 </div>
 <div id="rlm-for-batch-gradient-descent" class="section level2">
 <h2>rlm for Batch Gradient Descent</h2>
 <div id="without-bolddriver" class="section level3">
 <h3>without boldDriver</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
-<span class="co">#&gt; rlm(formula = hwy ~ displ, data = mpg, method = &quot;bgd&quot;)</span>
+<span class="co">#&gt; rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = &quot;bgd&quot;)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients</span>
-<span class="co">#&gt; (Intercept)       displ </span>
-<span class="co">#&gt;   35.697284   -3.530495</span></code></pre></div>
+<span class="co">#&gt; (Intercept) Petal.Width </span>
+<span class="co">#&gt;    1.088651    2.226566</span></code></pre></div>
 </div>
 <div id="with-bolddriver" class="section level3">
 <h3>with boldDriver</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>, <span class="dt">boldDriver =</span> <span class="ot">TRUE</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>, <span class="dt">boldDriver =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
-<span class="co">#&gt; rlm(formula = hwy ~ displ, data = mpg, method = &quot;bgd&quot;, boldDriver = TRUE)</span>
+<span class="co">#&gt; rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = &quot;bgd&quot;, </span>
+<span class="co">#&gt;     boldDriver = TRUE)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients</span>
-<span class="co">#&gt; (Intercept)       displ </span>
-<span class="co">#&gt;   35.697643   -3.530587</span></code></pre></div>
+<span class="co">#&gt; (Intercept) Petal.Width </span>
+<span class="co">#&gt;    1.083685    2.229799</span></code></pre></div>
 </div>
 </div>
 <div id="rlm-for-stochastic-gradient-descent" class="section level2">
 <h2>rlm for Stochastic Gradient Descent</h2>
 <div id="without-adagrad" class="section level3">
 <h3>without AdaGrad</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;sgd&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;sgd&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
-<span class="co">#&gt; rlm(formula = hwy ~ displ, data = mpg, method = &quot;sgd&quot;)</span>
+<span class="co">#&gt; rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = &quot;sgd&quot;)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients</span>
-<span class="co">#&gt; (Intercept)       displ </span>
-<span class="co">#&gt;   35.812983   -3.581527</span></code></pre></div>
+<span class="co">#&gt; (Intercept) Petal.Width </span>
+<span class="co">#&gt;    1.095225    2.217139</span></code></pre></div>
 </div>
 <div id="with-adagrad" class="section level3">
 <h3>with Adagrad</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;sgd&quot;</span>, <span class="dt">AdaGrad =</span> <span class="ot">TRUE</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;sgd&quot;</span>, <span class="dt">AdaGrad =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
-<span class="co">#&gt; rlm(formula = hwy ~ displ, data = mpg, method = &quot;sgd&quot;, AdaGrad = TRUE)</span>
+<span class="co">#&gt; rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = &quot;sgd&quot;, </span>
+<span class="co">#&gt;     AdaGrad = TRUE)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients</span>
-<span class="co">#&gt; (Intercept)       displ </span>
-<span class="co">#&gt;   0.3938806   0.3942381</span></code></pre></div>
+<span class="co">#&gt; (Intercept) Petal.Width </span>
+<span class="co">#&gt;   0.4488761   0.3931077</span></code></pre></div>
 </div>
 </div>
 <div id="rlm-for-mini-batch-gradient-descent" class="section level2">
 <h2>rlm for Mini-batch Gradient Descent</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;mini-bgd&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;mini-bgd&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
-<span class="co">#&gt; rlm(formula = hwy ~ displ, data = mpg, method = &quot;mini-bgd&quot;)</span>
+<span class="co">#&gt; rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = &quot;mini-bgd&quot;)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients</span>
-<span class="co">#&gt; (Intercept)       displ </span>
-<span class="co">#&gt;   35.233015   -3.515222</span></code></pre></div>
+<span class="co">#&gt; (Intercept) Petal.Width </span>
+<span class="co">#&gt;    1.090113    2.223443</span></code></pre></div>
 </div>
 <div id="rlm-for-coordinate-descent" class="section level2">
 <h2>rlm for Coordinate Descent</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;cd&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;cd&quot;</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
-<span class="co">#&gt; rlm(formula = hwy ~ displ, data = mpg, method = &quot;cd&quot;)</span>
+<span class="co">#&gt; rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = &quot;cd&quot;)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients</span>
-<span class="co">#&gt; (Intercept)       displ </span>
-<span class="co">#&gt;   35.697651   -3.530589</span></code></pre></div>
+<span class="co">#&gt; (Intercept) Petal.Width </span>
+<span class="co">#&gt;    1.083761    2.229819</span></code></pre></div>
 </div>
 <div id="coef" class="section level2">
 <h2>coef</h2>
 <p>Get the coefficients of the model</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
 <span class="kw">coef</span>(bgd)
-<span class="co">#&gt; (Intercept)       displ </span>
-<span class="co">#&gt;   35.697284   -3.530495</span></code></pre></div>
+<span class="co">#&gt; (Intercept) Petal.Width </span>
+<span class="co">#&gt;    1.088651    2.226566</span></code></pre></div>
 </div>
 <div id="fitted" class="section level2">
 <h2>fitted</h2>
 <p>Get the fitted values of the model</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
 <span class="kw">head</span>(<span class="kw">fitted</span>(bgd))
-<span class="co">#&gt; [1] 29.34239 29.34239 28.63629 28.63629 25.81190 25.81190</span></code></pre></div>
+<span class="co">#&gt; [1] 1.533965 1.533965 1.533965 1.533965 1.533965 1.979278</span></code></pre></div>
 </div>
 <div id="formula" class="section level2">
 <h2>formula</h2>
 <p>Get the formula of the applied model</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
 <span class="kw">formula</span>(bgd)
-<span class="co">#&gt; hwy ~ displ</span></code></pre></div>
+<span class="co">#&gt; Petal.Length ~ Petal.Width</span></code></pre></div>
 </div>
 <div id="print" class="section level2">
 <h2>print</h2>
 <p>Print the coefficients of the model</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
 <span class="kw">print</span>(bgd)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
-<span class="co">#&gt; rlm(formula = hwy ~ displ, data = mpg, method = &quot;bgd&quot;)</span>
+<span class="co">#&gt; rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = &quot;bgd&quot;)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients</span>
-<span class="co">#&gt; (Intercept)       displ </span>
-<span class="co">#&gt;   35.697284   -3.530495</span></code></pre></div>
+<span class="co">#&gt; (Intercept) Petal.Width </span>
+<span class="co">#&gt;    1.088651    2.226566</span></code></pre></div>
 </div>
 <div id="resid" class="section level2">
 <h2>resid</h2>
 <p>Get the residuals of the fitted model</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
 <span class="kw">head</span>(<span class="kw">resid</span>(bgd))
-<span class="co">#&gt;         [,1]</span>
-<span class="co">#&gt; 1 -0.3423930</span>
-<span class="co">#&gt; 2 -0.3423930</span>
-<span class="co">#&gt; 3  2.3637061</span>
-<span class="co">#&gt; 4  1.3637061</span>
-<span class="co">#&gt; 5  0.1881022</span>
-<span class="co">#&gt; 6  0.1881022</span></code></pre></div>
+<span class="co">#&gt;          [,1]</span>
+<span class="co">#&gt; 1 -0.13396458</span>
+<span class="co">#&gt; 2 -0.13396458</span>
+<span class="co">#&gt; 3 -0.23396458</span>
+<span class="co">#&gt; 4 -0.03396458</span>
+<span class="co">#&gt; 5 -0.13396458</span>
+<span class="co">#&gt; 6 -0.27927775</span></code></pre></div>
 </div>
 <div id="predict" class="section level2">
 <h2>predict</h2>
 <p>Apply the predictions on the new data set</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
-<span class="kw">head</span>(<span class="kw">predict</span>(bgd, <span class="dt">newdata=</span>mpg))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
+<span class="kw">head</span>(<span class="kw">predict</span>(bgd, <span class="dt">newdata=</span>iris))
 <span class="co">#&gt;       [,1]</span>
-<span class="co">#&gt; 1 29.34239</span>
-<span class="co">#&gt; 2 29.34239</span>
-<span class="co">#&gt; 3 28.63629</span>
-<span class="co">#&gt; 4 28.63629</span>
-<span class="co">#&gt; 5 25.81190</span>
-<span class="co">#&gt; 6 25.81190</span></code></pre></div>
+<span class="co">#&gt; 1 1.533965</span>
+<span class="co">#&gt; 2 1.533965</span>
+<span class="co">#&gt; 3 1.533965</span>
+<span class="co">#&gt; 4 1.533965</span>
+<span class="co">#&gt; 5 1.533965</span>
+<span class="co">#&gt; 6 1.979278</span></code></pre></div>
 </div>
 <div id="learning-rate" class="section level2">
 <h2>learning rate</h2>
 <p>This is the rate at which the algorithm would converge. The learning rate should be chosen carefully. If the learning rate is too high, the algorithm would overshoot and never converge. If the learning rate is too low, the algorithm would get slower and not converge before max.iter iterations.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>, <span class="dt">alpha=</span><span class="fl">0.2</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>, <span class="dt">alpha=</span><span class="fl">0.2</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
-<span class="co">#&gt; rlm(formula = hwy ~ displ, data = mpg, method = &quot;bgd&quot;, alpha = 0.2)</span>
+<span class="co">#&gt; rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = &quot;bgd&quot;, </span>
+<span class="co">#&gt;     alpha = 0.2)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients</span>
-<span class="co">#&gt;    (Intercept)          displ </span>
-<span class="co">#&gt; -3.148141e+283 -1.233357e+284</span></code></pre></div>
+<span class="co">#&gt; (Intercept) Petal.Width </span>
+<span class="co">#&gt;    1.086054    2.228287</span></code></pre></div>
 </div>
 <div id="max-iterations" class="section level2">
 <h2>max iterations</h2>
 <p>The function would terminate after &lt;max.iter&gt; iterations</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>, <span class="dt">alpha=</span><span class="fl">0.2</span>, <span class="dt">max.iter =</span> <span class="dv">500</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>, <span class="dt">alpha=</span><span class="fl">0.2</span>, <span class="dt">max.iter =</span> <span class="dv">500</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
-<span class="co">#&gt; rlm(formula = hwy ~ displ, data = mpg, method = &quot;bgd&quot;, alpha = 0.2, </span>
-<span class="co">#&gt;     max.iter = 500)</span>
+<span class="co">#&gt; rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = &quot;bgd&quot;, </span>
+<span class="co">#&gt;     alpha = 0.2, max.iter = 500)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients</span>
-<span class="co">#&gt;    (Intercept)          displ </span>
-<span class="co">#&gt; -6.488865e+141 -2.542163e+142</span></code></pre></div>
+<span class="co">#&gt; (Intercept) Petal.Width </span>
+<span class="co">#&gt;    1.086054    2.228287</span></code></pre></div>
 </div>
 <div id="precision" class="section level2">
 <h2>precision</h2>
 <p>The function would terminate if the parameter estimates do not change by more than &lt;precision&gt; for a given iteration.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>, <span class="dt">precision =</span> <span class="fl">0.0002</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>, <span class="dt">precision =</span> <span class="fl">0.0002</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
-<span class="co">#&gt; rlm(formula = hwy ~ displ, data = mpg, method = &quot;bgd&quot;, precision = 2e-04)</span>
+<span class="co">#&gt; rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = &quot;bgd&quot;, </span>
+<span class="co">#&gt;     precision = 2e-04)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Coefficients</span>
-<span class="co">#&gt; (Intercept)       displ </span>
-<span class="co">#&gt;   35.697284   -3.530495</span></code></pre></div>
+<span class="co">#&gt; (Intercept) Petal.Width </span>
+<span class="co">#&gt;    1.093872    2.223107</span></code></pre></div>
 </div>
 <div id="plotloss" class="section level2">
 <h2>plotLoss</h2>
 <p>The function prints the loss function for each iteration</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> hwy ~<span class="st"> </span>displ, <span class="dt">data =</span> mpg, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bgd &lt;-<span class="st"> </span><span class="kw">rlm</span>(<span class="dt">formula =</span> Petal.Length ~<span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris, <span class="dt">method =</span> <span class="st">&quot;bgd&quot;</span>)
 <span class="kw">plotLoss</span>(bgd)</code></pre></div>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAABlBMVEUAAAD///+l2Z/dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAE6UlEQVR4nO3ci26jShAA0fH///RqlRjbBKaYl6c9rpJuFAVo7HMJ+LVJN8uWZt+A6AkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkEdQZKH9MsoF+lvlMHNBPo/l/oJgKlEXO7JxAkEOQ5CPIqBk0F+oQEggSCBIIEggSCaoBKn+dmxsV3qgDqcqcEujZOIBi3JFCXe7UyUPGLkZlxSwL13K9AMG5RoOZfsMWBerwUuDJQ+vOT+v0KBOME2k/ZPUZYEshzEK7oVaxlxaJxAsE4gWDcekDJJ6utKxaNWxLIB4qwokDZFSs+vZcZtyCQr0m3rlg0bk2gjs/F4jf5JB0/gSCBoDHnoN81Mg8Flgbi14PS65eW/c5uzGU+PTY42W47xkrGzmgqUDpfHqaZQD0eTw2v6iSNz8X+L8zf/ZWBrm3yA5i9in030JVxi56DWu7S7rWSRa9iPe5UeJh7NUdQxxfM4jfoMo+vO345EK/97UC4+spA185BMHhloNItM+MWvcyXbno6btEHisWbno1b9alG8aZn49LTk9qwNZykm/ebti+BG3WZvzKuB/TwSoFSx2fzAsG4lLJvfMSo+Fes46c7ljyCSjahcV3O9qMLcJIW6HScQDDuEw4hgSCBoNoX7Xs81fiIk1DlZb75hYoXoMhCAkFvBto/DBcIxsU/hKpO0vnPJZSMWxOo534FgnHhD6G5j4PWBOp5ku7zSYiRzQYKfwgJBE0Hii40+XHQbUmgzvuNLSQQVAXU4f4cAMUUqn2g2O8cFPwQqryKFW1K+w19CEUACn0IhQKKKBThHBRaKMBVbJu4DlD//cY9hIIAxRUaA/R4U+fyuKhCpUDpKVg5PW3G+700d0LjjqD0+PbSuKBCbwbKITwfnHGM4hxBO6EoRoOALv2z8KPN9pXsdUjDLvOJ/1n44UaRGgpUN242ya6S+/0eoGhEAYFiEYUEikQUFOgWxajkfr8Z6Gel+T6xgSI0DehjmgR0bSgsb1vcunnb6n2GCtS2XCCB2pYLJFDbcoEEalu+PtBKCQQJBAkECQQJBAkECQQJBAkECQQJBAkEDQA6eU9le69lW17w5svBRuVv3VTN6A908sbu9uO/35QMrdn6/j+makZ3oPT09ejHf78pGVqzdXpoVMx4F9C2sAHoVrX1feXFgVI6uZeXb9MnAKVbLdB9S4Fg6NpA9b8k3wGUXr8KdLynrwd6OtEc72hbfrJifmj11rUz+gMdP35/+lzXtz/VWCyBIIEggSCBIIEggSCBIIEggSCBIIEggSCBIIEggSCBIIEggSCBIIEggSCBIIEggSCBIIGguEBBblmQm3FSgFsX4CZkCnDrAtyEk9Lt/uH87ROuM/6CZ2ig1485zfkDp/GBdp+Ym3EzYiYQ9PjN+v3wnkCvvR5BN4H2+SsG/b2KTbsZMXs8AkqFf120+82wTAJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkH/AMCzOaiPxzgaAAAAAElFTkSuQmCC" /><!-- --></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAABlBMVEUAAAD///+l2Z/dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAE+ElEQVR4nO3djY6bOBRAYef9X7rSNH9kio8Ndu+NOUfa3WrjGPKJAGFoptysWolegewJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBA0GKl9TFNBdaeysE4oEevyTukCgMmPe4QkECQTNBdp/0sX3QXyYvPpRrNCT8svcm/UW29nB9J9/RTdtH1TqexiB3g5UY6YLauZRrAhEz7ko0Ij9LB7msnQAaMiLEqhtOoFguiWBhryqlYGGnAyvDDRyuQLBdIsCDfi0uTTQiEuBKwOVX//n+HIFgukEgumWBHIfhAPHHcXyF3welD+BIIGgXqAy9sNq/tyCoKnnQZWtrNCALE0C+nkH1n50WB7/yi7UDdR0997PK6+eT75skgvNuSb93D4+R290VwVqHXzZLajlhT0frN8f1LMCQc06ij1Om6o76QsfxcYtNzqBoODrQfnzehDkZzEoGig9lEDQoZ30wOtBKwINeU0CNU4n0NnlRnf8RPE/LTe6I1uQF+1PDQyZbl4CQcFA+S8Ixe6DvuCS4vEtaMDljm+4KH3iLXZ+CxIIphOIpltzH9S0j34+Xvuxz6JHsdbR5e1tdHK6wHqBStNT3rYegWqz/hp9gb8333x3x/0PV9uCGp/yErogUN9wgSYvNzqBIIEggaCjF+3Pnsm8nTWcmmd6Bw/zpz9l8rl2kmKBvuB6h0CQQNChnTR8P1nHdEvug4Yud8Wj2P9dbnTR50HpCz4Pyp9AUDhQ9r10NFD643yC86DcQsGHeYFgukWBBv5lljX3QX3PrE+36FGs66mnlhvdHKDGL/1/jG1dh4gmbUF7j/12y74TmrUPonm3yomFph3F4PG1gQYuVyCaLvvNQgJBvUB8AO9brm8xmK78NR87+cjigZKfCEUDpd+E4oGS3/WaACjv71xNAZSXp/RdWb4kUMkAlFooBVBmoRxAeYV6XvdMoKxCXa97KlDiwoC+piCgzkkDB4ZN2DWpQHkHhk3YNalAeQeGTdg1qUB5B4ZN2DWpQHkHhk24WgJBAkECQQJBAkECQQJBAkECQQJBAkECQROAWn6m8vrRS3X06w5KmLr0zNrVeKCmH+y+34m2P/rt9ymW6uDPX7w48P6/SddPaNqy+e/uZlE2Y3YHl4+H2tahrRigsv3Dv0eXWyPQdmDrOjQWBPTcV9RHN25Bj4GNs3YVuAW9dhSjgBpn7SpoH/QYNBSoddauBIIEgiKPYqOBWmftajjQ216yZVB9dGkd3Dywu/FAbaf5/Onh58HWwc0Du5sAtFYCQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBeYGSrFmS1dgpwdolWIVKCdYuwSrsVG6PLzt93rsa8cWeqYG2d0PFfO9pfqCPG+siViNnAkGvd9b9DnqBtm23oJtAn/kWg34fxcJWI2evM6DS+e2iw1fDKgkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQQJBAkECQT9AXidOo46CU3sAAAAAElFTkSuQmCC" /><!-- --></p>
 </div>
 
 
