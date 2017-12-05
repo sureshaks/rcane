@@ -74,6 +74,7 @@ We use 4 different algorithms:
 </table>
 
 
+
 ## Package installation and usage
 
 If you have R >= 3.4.2, follow the instructions
@@ -90,6 +91,7 @@ install_github("sureshaks/rcane")
 library(rcane)
 ?rlm
 ```
+
 
 ## Who are we?
 

@@ -67,6 +67,7 @@ Time for some Math
 
 </tr>
 </table>
+
 Package installation and usage
 ------------------------------
 
