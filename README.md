@@ -36,11 +36,12 @@ We use 4 different algorithms:
 
 -   Coordinate Descent
 
-### Time for some Math
+Time for some Math
+------------------
 
 <img src="man/figures/dreadfulmath.png" align="center" />
 
-<table rules="none">
+<table>
 <tr>
     <th> 
       Batch
@@ -66,7 +67,8 @@ We use 4 different algorithms:
 
 </tr>
 </table>
-### Package installation and usage
+Package installation and usage
+------------------------------
 
 If you have R &gt;= 3.4.2, follow the instructions
 

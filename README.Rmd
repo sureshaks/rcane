@@ -10,19 +10,15 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
 <img src="man/figures/logo.png" />
 
-
 # rcane 
-
 
 [![Build Status](https://travis-ci.org/sureshaks/rcane.svg?branch=akshay)](https://travis-ci.org/sureshaks/rcane)
 
 ## What is it?
 
 An R package to find parameter estimates of Linear Regression
-
 
 ## No seriously, what is it?
 
@@ -36,10 +32,6 @@ A little more info
 
 We start with arbitrary parameter estimates for linear regression and slide down to the optimal values.
 
-
-
-
-
 ## But how?
 
 We use 4 different algorithms:
@@ -52,12 +44,11 @@ We use 4 different algorithms:
 
 - Coordinate Descent
 
-
-### Time for some Math 
+## Time for some Math 
 
 <img src="man/figures/dreadfulmath.png" align="center" />
 
-<table rules="none">
+<table>
   <tr>
     <th> 
       Batch
@@ -83,7 +74,7 @@ We use 4 different algorithms:
 </table>
 
 
-### Package installation and usage
+## Package installation and usage
 
 If you have R >= 3.4.2, follow the instructions
 
@@ -99,6 +90,7 @@ install_github("sureshaks/rcane")
 library(rcane)
 ?rlm
 ```
+
 ## Who are we?
 
 <table>
@@ -109,5 +101,3 @@ library(rcane)
     <td>Akshay Suresh</td>
   </tr>
 </table>
-
-
