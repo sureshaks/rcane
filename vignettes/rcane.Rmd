@@ -46,7 +46,6 @@ The flow can be given as follows
 ![Package flow](../man/figures/flow.png)
 
 ```{r include, message=FALSE, warning=FALSE}
-library(tidyverse)
 library(rcane)
 ```
 
@@ -57,44 +56,44 @@ library(rcane)
 ### without boldDriver
 
 ```{r bgd, message=FALSE, warning=FALSE}
-rlm(formula = hwy ~ displ, data = mpg, method = "bgd")
+rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "bgd")
 ```
 
 
 ### with boldDriver
 ```{r bgdBoldDriver, message=FALSE, warning=FALSE}
-rlm(formula = hwy ~ displ, data = mpg, method = "bgd", boldDriver = TRUE)
+rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "bgd", boldDriver = TRUE)
 ```
 
 ## rlm for Stochastic Gradient Descent
 
 ### without AdaGrad
 ```{r sgd, message=FALSE, warning=FALSE}
-rlm(formula = hwy ~ displ, data = mpg, method = "sgd")
+rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "sgd")
 ```
 
 
 ### with Adagrad
 ```{r sgdAda, message=FALSE, warning=FALSE}
-rlm(formula = hwy ~ displ, data = mpg, method = "sgd", AdaGrad = TRUE)
+rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "sgd", AdaGrad = TRUE)
 ```
 
 ## rlm for Mini-batch Gradient Descent
 ```{r mbgd, message=FALSE, warning=FALSE}
-rlm(formula = hwy ~ displ, data = mpg, method = "mini-bgd")
+rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "mini-bgd")
 ```
 
 
 ## rlm for Coordinate Descent
 ```{r cd, message=FALSE, warning=FALSE}
-rlm(formula = hwy ~ displ, data = mpg, method = "cd")
+rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "cd")
 ```
 
 ## coef
 Get the coefficients of the model
 
 ```{r coef, message=FALSE, warning=FALSE}
-bgd <- rlm(formula = hwy ~ displ, data = mpg, method = "bgd")
+bgd <- rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "bgd")
 coef(bgd)
 ```
 
@@ -102,7 +101,7 @@ coef(bgd)
 Get the fitted values of the model
 
 ```{r fitted, message=FALSE, warning=FALSE}
-bgd <- rlm(formula = hwy ~ displ, data = mpg, method = "bgd")
+bgd <- rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "bgd")
 head(fitted(bgd))
 ```
 
@@ -110,7 +109,7 @@ head(fitted(bgd))
 Get the formula of the applied model
 
 ```{r formula, message=FALSE, warning=FALSE}
-bgd <- rlm(formula = hwy ~ displ, data = mpg, method = "bgd")
+bgd <- rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "bgd")
 formula(bgd)
 ```
 
@@ -118,7 +117,7 @@ formula(bgd)
 Print the coefficients of the model
 
 ```{r print, message=FALSE, warning=FALSE}
-bgd <- rlm(formula = hwy ~ displ, data = mpg, method = "bgd")
+bgd <- rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "bgd")
 print(bgd)
 ```
 
@@ -126,7 +125,7 @@ print(bgd)
 Get the residuals of the fitted model
 
 ```{r resid, message=FALSE, warning=FALSE}
-bgd <- rlm(formula = hwy ~ displ, data = mpg, method = "bgd")
+bgd <- rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "bgd")
 head(resid(bgd))
 ```
 
@@ -134,8 +133,8 @@ head(resid(bgd))
 Apply the predictions on the new data set
 
 ```{r predict, message=FALSE, warning=FALSE}
-bgd <- rlm(formula = hwy ~ displ, data = mpg, method = "bgd")
-head(predict(bgd, newdata=mpg))
+bgd <- rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "bgd")
+head(predict(bgd, newdata=iris))
 ```
 
 
@@ -144,21 +143,21 @@ This is the rate at which the algorithm would converge. The learning rate should
 If the learning rate is too high, the algorithm would overshoot and never converge. If the learning rate is too low, the algorithm would get slower and not converge before max.iter iterations.
 
 ```{r lr, message=FALSE, warning=FALSE}
-rlm(formula = hwy ~ displ, data = mpg, method = "bgd", alpha=0.2)
+rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "bgd", alpha=0.2)
 ```
 
 ## max iterations
 The function would terminate after <max.iter> iterations
 
 ```{r maxiterations, message=FALSE, warning=FALSE}
-rlm(formula = hwy ~ displ, data = mpg, method = "bgd", alpha=0.2, max.iter = 500)
+rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "bgd", alpha=0.2, max.iter = 500)
 ```
 
 ## precision
 The function would terminate if the parameter estimates do not change by more than \<precision\> for a given iteration.
 
 ```{r precision, message=FALSE, warning=FALSE}
-rlm(formula = hwy ~ displ, data = mpg, method = "bgd", precision = 0.0002)
+rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "bgd", precision = 0.0002)
 ```
 
 
@@ -166,6 +165,6 @@ rlm(formula = hwy ~ displ, data = mpg, method = "bgd", precision = 0.0002)
 The function prints the loss function for each iteration
 
 ```{r plotLoss, message=FALSE, warning=FALSE}
-bgd <- rlm(formula = hwy ~ displ, data = mpg, method = "bgd")
+bgd <- rlm(formula = Petal.Length ~ Petal.Width, data = iris, method = "bgd")
 plotLoss(bgd)
 ```
