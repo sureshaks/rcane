@@ -80,10 +80,10 @@ We use 4 different algorithms:
       <img src="man/figures/coordinate.png" align="center" />
     </td>
   </tr>
-</table>  
+</table>
 
 
-## Package installation and usage
+### Package installation and usage
 
 If you have R >= 3.4.2, follow the instructions
 

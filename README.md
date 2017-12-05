@@ -66,8 +66,7 @@ We use 4 different algorithms:
 
 </tr>
 </table>
-Package installation and usage
-------------------------------
+### Package installation and usage
 
 If you have R &gt;= 3.4.2, follow the instructions
 
