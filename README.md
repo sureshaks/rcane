@@ -70,13 +70,13 @@ We use 4 different algorithms:
 
 If you have R &gt;= 3.4.2, follow the instructions
 
-1.  Open R studio and run this on the console
+-   Open R studio and run this on the console
 
 ``` r
 install_github("sureshaks/rcane")
 ```
 
-1.  Nothing. You can just include it in the search path and use it
+-   Nothing. You can just include it in the search path and use it
 
 ``` r
 library(rcane)
