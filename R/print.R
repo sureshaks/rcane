@@ -1,8 +1,8 @@
 #' @rdname rlm.summaries
 #' 
-#' @method print rlm
+#' @method print rlmmodel
 #' @export
-print.rlm <- function(x, ...) {
+print.rlmmodel <- function(x, ...) {
   cat("\nCall:\n")
   print(x$call)
   cat("\nCoefficients:\n")

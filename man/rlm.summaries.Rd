@@ -6,8 +6,8 @@
 \alias{coef.rlm}
 \alias{fitted.rlm}
 \alias{formula.rlm}
-\alias{predict.rlm}
-\alias{print.rlm}
+\alias{predict.rlmmodel}
+\alias{print.rlmmodel}
 \alias{resid.rlm}
 \title{Accessing rlm Model Fits}
 \usage{
@@ -17,9 +17,9 @@
 
 \method{formula}{rlm}(x, ...)
 
-\method{predict}{rlm}(object, newdata, ...)
+\method{predict}{rlmmodel}(object, newdata, ...)
 
-\method{print}{rlm}(x, ...)
+\method{print}{rlmmodel}(x, ...)
 
 \method{resid}{rlm}(object, ...)
 }

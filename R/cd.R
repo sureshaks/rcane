@@ -61,7 +61,7 @@ CoordinateDescent <- function(X, Y, max.iter = 10000, precision = 0.0001) {
     residuals = rs,
     loss_iter = loss_iter
   ),
-  class = "rlm")
+  class = c("rlm", "rlmmodel"))
   
   z
 }

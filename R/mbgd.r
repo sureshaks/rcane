@@ -64,7 +64,7 @@ MiniBatchGradientDescent <- function(X, Y, alpha=0.1, max.iter=1000, precision=0
     residuals = rs,
     loss_iter = loss_iter
   ),
-  class = "rlm")
+  class = c("rlm", "rlmmodel"))
   
   z
 }

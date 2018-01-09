@@ -1,8 +1,8 @@
 #' @rdname rlm.summaries
 #' 
-#' @method predict rlm
+#' @method predict rlmmodel
 #' @export
-predict.rlm <- function(object, newdata, ...) {
+predict.rlmmodel <- function(object, newdata, ...) {
   if(missing(newdata) || is.null(newdata)) {
     return(fitted(object))
   } else{

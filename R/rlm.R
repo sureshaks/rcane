@@ -19,7 +19,14 @@ NULL
 #' @param boldDriver set \code{TRUE} to use bold driver for method='bgd'
 #' @param AdaGrad set \code{TRUE} to use AdaGrad for method='sgd'
 #' @param ... additional arguments to be passed to the low level regression fitting functions.
-#' 
+#' @description
+#' Gradient descent is a first-order iterative optimization algorithm for finding the minimum of a function.
+#' bgd (Batch Gradient Descent) - Batch Gradient Descent updates the parameters by computing loss function of the entire dataset.
+#' sgd (Stochastic Gradient Descent) - Stochastic Gradient Descent updates the parametes by computing loss function for each record in
+#' the dataset.
+#' cd (Coordinate Descent) - Coordinate Descent updates the parameter by minimizing the loss function along each coordinate axis.
+#' mini-bgd (Mini Batch Gradient Descent) - Mini Batch Gradient Descent divides the data into batches and updates the parameters by computing the loss 
+#' function for each batch.
 #' @examples
 #' library(datasets)
 #' rlm(mpg ~ disp, data = mtcars, alpha = 0.00001)
@@ -66,7 +73,7 @@ rlm <- function (formula, data, method = "sgd", alpha=0.1, max.iter=1000, precis
     stop(gettextf("%d not implemented", method))
   }
   
-  class(z) <- "rlm"
+  class(z) <- c("rlm","rlmmodel")
   z$call <- cl
   z$method <- method
   z$formula <- formula

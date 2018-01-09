@@ -1,11 +1,11 @@
 Package: rcane
 Type: Package
-Title: The package performs different types of numeric optimizations to estimate parameter coefficients
+Title: Different Numeric Optimizations to Estimate Parameter Coefficients
 Version: 1.0
-Date: 2017-10-28
+Date: 2018-01-05
 Author: Akshay Suresh, Siddhesh Acharekar, Hsiangwei Chao, Shiva Yogi Biradar
 Maintainer: Akshay Suresh<suresh.aks@husky.neu.edu>
-Description: There are different numeric optimizations which are used in order to estimate coefficients in models such as Linear Regression and Neural Networks. This package covers parameter estimation in Linear Regression using different methods such as Batch Gradient Descent, Stochastic Gradient Descent, Minibatch Gradient Descent and Coordinate Gradient Descent.
+Description: There are different numeric optimizations which are used in order to estimate coefficients in models such as linear regression and neural networks. This package covers parameter estimation in linear regression using different methods such as batch gradient descent, stochastic gradient descent, minibatch gradient descent and coordinate descent.
 License: MIT + file LICENSE
 RoxygenNote: 6.0.1.9000
 Suggests: testthat,

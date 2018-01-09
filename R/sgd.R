@@ -73,7 +73,7 @@ StochasticGradientDescent <- function(X, Y, alpha = 0.1, max.iter = 1000, precis
     residuals = rs,
     loss_iter = loss_iter
     ),
-    class = "rlm")
+    class = c("rlm","rlmmodel"))
   
   z
 }
