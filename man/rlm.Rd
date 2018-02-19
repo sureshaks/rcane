@@ -32,6 +32,15 @@ rlm(formula, data, method = "sgd", alpha = 0.1, max.iter = 1000,
 \description{
 RCANE
 
+Gradient descent is a first-order iterative optimization algorithm for finding the minimum of a function.
+bgd (Batch Gradient Descent) - Batch Gradient Descent updates the parameters by computing loss function of the entire dataset.
+sgd (Stochastic Gradient Descent) - Stochastic Gradient Descent updates the parametes by computing loss function for each record in
+the dataset.
+cd (Coordinate Descent) - Coordinate Descent updates the parameter by minimizing the loss function along each coordinate axis.
+mini-bgd (Mini Batch Gradient Descent) - Mini Batch Gradient Descent divides the data into batches and updates the parameters by computing the loss 
+function for each batch.
+}
+\details{
 \code{rlm} is an interface for the optimization functions written in the rcane project.
 }
 \examples{
