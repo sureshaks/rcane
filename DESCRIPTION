@@ -5,7 +5,12 @@ Version: 1.0
 Date: 2018-01-05
 Author: Akshay Suresh, Siddhesh Acharekar, Hsiangwei Chao, Shiva Yogi Biradar
 Maintainer: Akshay Suresh<suresh.aks@husky.neu.edu>
-Description: There are different numeric optimizations which are used in order to estimate coefficients in models such as linear regression and neural networks. This package covers parameter estimation in linear regression using different methods such as batch gradient descent, stochastic gradient descent, minibatch gradient descent and coordinate descent.
+Description: There are different numeric optimizations which are used in order to estimate coefficients in models such as linear regression and neural networks. This package covers parameter estimation in linear regression using different methods such as batch gradient descent, stochastic gradient descent, minibatch gradient descent and coordinate descent. 
+Kiwiel, Krzysztof C. (2001) <doi:10.1007/PL00011414>
+Yu. Nesterov (2004) <ISBN:1-4020-7553-7>
+Ferguson, Thomas S. (1982) <doi:10.1080/01621459.1982.10477894>
+Zeiler, Matthew D. (2012) <arXiv:1212.5701>
+Wright, Stephen J. (2015) <arXiv:1502.04759>
 License: MIT + file LICENSE
 RoxygenNote: 6.0.1.9000
 Suggests: testthat,
