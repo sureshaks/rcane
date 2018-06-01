@@ -2,7 +2,7 @@ Package: rcane
 Type: Package
 Title: Different Numeric Optimizations to Estimate Parameter Coefficients
 Version: 1.0
-Date: 2018-05-31
+Date: 2018-06-01
 Author: Akshay Suresh, Siddhesh Acharekar, Hsiangwei Chao, Shiva Yogi Biradar
 Maintainer: Akshay Suresh<suresh.aks@husky.neu.edu>
 Description: There are different numeric optimizations which are used in order to estimate coefficients in models such as linear regression and neural networks. This package covers parameter estimation in linear regression using different methods such as batch gradient descent, stochastic gradient descent, minibatch gradient descent and coordinate descent.
